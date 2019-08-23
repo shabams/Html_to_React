@@ -1,0 +1,65 @@
+.contact {
+	max-width: 1366px;
+	margin: 0 auto;
+}
+.above-header {
+	margin-top: 60px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.above-header-left.col {
+	padding-top: 160px;
+	padding-left: 43px;
+}
+
+.above-header-title {
+	font-size: 52px;
+	color: #ffffff;
+}
+
+.above-header-sub-title {
+	font-size: 42px;
+	color: #ffffff;
+}
+
+.above-header-right.col {
+	max-width: 564px;
+}
+
+.contact-us {
+	position: relative;
+}
+
+.contact-us-form {
+	position: absolute;
+	top: 60px;
+	left: 30px;
+	right: 40px;
+}
+
+.contact-us-form-title {
+	color: #374354;
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.contact-us-form h6 {
+	margin-bottom: 50px;
+}
+
+.contact-us-form-inside .form-group {
+	margin-bottom: 28px;
+}
+
+.contact-us-form-inside label {
+	color: #374354;
+}
+
+.contact-us-form-inside button {
+	color: #ffffff;
+	background-color: #374354;
+	border: none;
+	margin-top: 20px;
+	padding: 10px 80px;
+}

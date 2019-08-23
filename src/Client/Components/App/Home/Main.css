@@ -1,0 +1,60 @@
+.page-body .container-fluid {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding-top: 165px;
+}
+
+.ease {
+	margin-bottom: 130px;
+}
+
+.ease-title {
+	color: #374354;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+.ease-title span {
+	color: #3ff5b8;
+}
+
+.ease .col h4 {
+	color: #374354;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.free-toilet {
+	margin-bottom: 260px;
+}
+
+.free-toilet-title {
+	color: #374354;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 55px;
+}
+
+.free-toilet-title span {
+	color: #3ff5b8;
+}
+
+.about-us h1, .about-us h4, .about-us p {
+	color: #374354;
+}
+
+.about-us-title {
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 90px;
+}
+
+.about-us h4 {
+	font-weight: bold;
+}
+
+
+.about-us-context.col {
+	min-width: 300px;
+}

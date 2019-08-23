@@ -1,0 +1,10 @@
+.header {
+	background: url("../../../Assets/Images/headerbackground.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	min-height: 2004px;
+}
+.page-header {
+	max-width: 1366px;
+	margin: 0 auto;
+}

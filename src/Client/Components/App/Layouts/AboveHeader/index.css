@@ -1,0 +1,60 @@
+.above-header {
+	margin-top: 60px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.above-header-left.col {
+	padding-top: 160px;
+	padding-left: 43px;
+}
+
+.above-header-title {
+	font-size: 52px;
+	color: #ffffff;
+}
+
+.above-header-sub-title {
+	font-size: 42px;
+	color: #ffffff;
+}
+
+.above-header-right.col {
+	max-width: 564px;
+}
+
+.get-estimation {
+	position: relative;
+}
+
+.get-estimation-form {
+	position: absolute;
+	top: 90px;
+	left: 80px;
+	right: 55px;
+}
+
+.get-estimation-form-title {
+	padding-left: 40px;
+	padding-right: 40px;
+	text-align: center;
+	color: #374354;
+	font-size: 24px;
+	margin-bottom: 40px;
+}
+
+.get-estimation-form-inside .form-group {
+	margin-bottom: 28px;
+}
+
+.get-estimation-form-inside label {
+	color: #374354;
+}
+
+.get-estimation-form-inside button {
+	color: #ffffff;
+	background-color: #374354;
+	border: none;
+	margin-top: 20px;
+	padding: 10px 40px;
+}
