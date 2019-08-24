@@ -1,12 +1,12 @@
-.container-fluid {
+.footer.container-fluid {
 	max-width: 1366px;
 	margin: 0 auto;
-	padding-left: 43px;
-	padding-right: 43px;
+/*	padding-left: 43px;
+	padding-right: 43px;*/
 }
 
 .pre-footer {
-	padding: 100px 43px;
+	padding: 100px 0;
 	justify-content: space-between;
 }
 

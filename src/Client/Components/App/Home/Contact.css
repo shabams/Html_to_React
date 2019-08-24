@@ -7,11 +7,27 @@
 	margin-top: 100px;
 	padding-left: 15px;
 	padding-right: 15px;
+	justify-content: space-between;
 }
 
 .contact-us-left.col {
-	padding-left: 43px;
+	/*padding-left: 43px;*/
 	flex-direction: column;
+	max-width: 420px;
+}
+
+.contact-us-left.col > div + div {
+	margin-top: 50px; 
+}
+
+.contact-us-left.col > div.contact-us-left-div > div {
+	width: 31px;
+	margin-right: 20px;
+	align-items: center;
+}
+
+.contact-us-left.col > div.contact-us-left-div > div img {
+	justify-content: center;
 }
 
 .contact-us-title {

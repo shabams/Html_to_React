@@ -14,16 +14,22 @@ class Contact extends Component {
 					<h1 className='contact-us-title' style={{ textAlign: 'center', fontWeight: 'bold', color: '#374354' }}>Contact Us</h1>
 					<Row className='contact-us'>
 						<Col className='contact-us-left d-flex justify-content-center'>
-							<div className='d-flex'>
-								<Image src={phone} />
+							<div className='d-flex contact-us-left-div'>
+								<div className='d-flex justify-content-center'>
+									<Image src={phone} style={{width: 26, height: 26}}/>
+								</div>
 								<h4>+1 123 456 789</h4> 
 							</div>
-							<div className='d-flex'>
-								<Image src={mail} />
+							<div className='d-flex contact-us-left-div'>
+								<div className='d-flex justify-content-center'>
+									<Image src={mail} style={{ width: 31, height: 25 }} />
+								</div>
 								<h4>email@ekleeltech</h4> 
 							</div>
-							<div className='d-flex'>
-								<Image src={location} />
+							<div className='d-flex contact-us-left-div'>
+								<div className='d-flex justify-content-center'>
+									<Image src={location} style={{ width: 25, height: 35}} />
+								</div>
 								<h4>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed.</h4> 
 							</div>
 						</Col>
