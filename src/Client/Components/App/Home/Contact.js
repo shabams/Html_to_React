@@ -2,19 +2,33 @@ import React, { Component } from 'react';
 import { Row, Col, Image, Form, Button, Container } from 'react-bootstrap';
 import './Contact.css';
 import contactform from '../../../Assets/Images/contactform.png';
+import mail from '../../../Assets/Images/mail.png';
+import phone from '../../../Assets/Images/phone.png';
+import location from '../../../Assets/Images/location.png';
 
 class Contact extends Component {
 	render() {
 		return(
 			<div className='contact'>
 				<Container fluid>
-					<Row className='above-header'>
-						<Col className='above-header-left'>
-							<h1 className='above-header-title'>We handle cleaning,</h1>
-							<h1 className='above-header-sub-title'>So you focus on what matters.</h1>
+					<h1 className='contact-us-title' style={{ textAlign: 'center', fontWeight: 'bold', color: '#374354' }}>Contact Us</h1>
+					<Row className='contact-us'>
+						<Col className='contact-us-left d-flex justify-content-center'>
+							<div className='d-flex'>
+								<Image src={phone} />
+								<h4>+1 123 456 789</h4> 
+							</div>
+							<div className='d-flex'>
+								<Image src={mail} />
+								<h4>email@ekleeltech</h4> 
+							</div>
+							<div className='d-flex'>
+								<Image src={location} />
+								<h4>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed.</h4> 
+							</div>
 						</Col>
-						<Col className='contact-us-right'>
-							<div className='contact-us'>
+						<Col className='contact-us-right' style={{ maxWidth: 652 }}>
+							<div className='contact-us-f'>
 								<Image src={contactform} />
 								<div className='contact-us-form'>
 									<h4 className='contact-us-form-title'>We’d love to hear from you!</h4>

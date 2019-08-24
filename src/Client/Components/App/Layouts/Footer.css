@@ -1,0 +1,30 @@
+.container-fluid {
+	max-width: 1366px;
+	margin: 0 auto;
+	padding-left: 43px;
+	padding-right: 43px;
+}
+
+.pre-footer {
+	padding: 100px 43px;
+	justify-content: space-between;
+}
+
+.pre-footer h4 {
+	margin-bottom: 45px;
+}
+
+.footer-quick-access a {
+	color: #374354;
+}
+.footer-quick-access a p {
+	margin-bottom: 20px;
+}
+
+.footer-quick-access .access-left {
+	margin-right: 120px;
+}
+
+.social a + a {
+	margin-left: 50px;	
+}

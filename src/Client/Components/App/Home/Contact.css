@@ -1,29 +1,30 @@
 .contact {
 	max-width: 1366px;
 	margin: 0 auto;
+	margin-top: 240px;
 }
-.above-header {
-	margin-top: 60px;
+.contact-us {
+	margin-top: 100px;
 	padding-left: 15px;
 	padding-right: 15px;
 }
 
-.above-header-left.col {
-	padding-top: 160px;
+.contact-us-left.col {
 	padding-left: 43px;
+	flex-direction: column;
 }
 
-.above-header-title {
+.contact-us-title {
 	font-size: 52px;
 	color: #ffffff;
 }
 
-.above-header-sub-title {
+.contact-us-sub-title {
 	font-size: 42px;
 	color: #ffffff;
 }
 
-.above-header-right.col {
+.contact-us-right.col {
 	max-width: 564px;
 }
 

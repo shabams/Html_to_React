@@ -2,4 +2,16 @@
 	background: url("../../../Assets/Images/footerbackground.png");
 	background-repeat: no-repeat;
 	min-height: 658px;
+	color: #ffffff;
+	flex-direction: column;
+	text-align: center;
+	background-size: 100% 100%;
+	margin-top: 240px;
+}
+
+button.schedule-now-button {
+	color: #374354;
+	background-color: #3ff5b8;
+	border: none;
+	padding: 10px 40px;
 }

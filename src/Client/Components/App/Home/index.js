@@ -4,7 +4,7 @@ import Header from '../Layouts/Header';
 import Main from './Main';
 import Contact from './Contact';
 import ScheduleNow from './ScheduleNow';
-// import Footer from '../Layouts/Footer';
+import Footer from '../Layouts/Footer';
 
 class HomePage extends Component {
 	render() {
@@ -14,6 +14,7 @@ class HomePage extends Component {
         <Main />
         <Contact />
         <ScheduleNow />
+        <Footer />
       </div>
     );
 	}
