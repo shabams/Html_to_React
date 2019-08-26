@@ -13,11 +13,15 @@
 	margin-bottom: 90px;
 }
 
+.works-body > div + div {
+	margin-top: 0;
+}
+
 .card {
 	background: none !important;
-  border: none !important;
-  width: 240px;
-  text-align: center;
+	border: none !important;
+	width: 240px;
+	text-align: center;
 }
 
 .card .card-img-top {
@@ -53,4 +57,31 @@
 
 .card-text {
 	color: #ffffff !important;
+}
+
+@media only screen and (max-width: 767px) {
+	h1.works-title {
+		font-size: 32px;
+	}
+
+	h4.works-sub-title, .card-title {
+		font-size: 18px !important;
+	}
+
+	.card-text {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 845px) {
+/*	.works-body > div + div {
+		margin-top: 70px;
+	}*/
+	.works-body {
+		padding-bottom: 330px;
+	}
+
+	.works-body > div {
+		padding-bottom: 70px;
+	}
 }

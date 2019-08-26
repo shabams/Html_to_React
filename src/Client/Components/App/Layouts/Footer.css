@@ -8,10 +8,15 @@
 .pre-footer {
 	padding: 100px 0;
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .pre-footer h4 {
 	margin-bottom: 45px;
+}
+
+.pre-footer > div {
+	margin-left: 20px;
 }
 
 .footer-quick-access a {
@@ -27,4 +32,30 @@
 
 .social a + a {
 	margin-left: 50px;	
+}
+
+@media only screen and (max-width: 382px) {
+	.footer-logo {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 552px) {
+	.footer-logo {
+		display: none;
+	}
+
+	.pre-footer > div {
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.footer-quick-access > div {
+		flex-direction: column;
+		margin-bottom: 50px;
+	}
+
+	.footer-quick-access .access-left {
+		margin-right: 0;
+	}
 }

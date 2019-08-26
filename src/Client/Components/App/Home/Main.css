@@ -5,7 +5,22 @@
 }
 
 .ease {
-	margin-bottom: 130px;
+	margin-bottom: 85px;
+}
+
+.ease > div {
+	flex-direction: column;
+	padding-bottom: 45px;
+}
+
+.ease > div > div {
+	width: 100%;
+	text-align: center;
+}
+
+.ease img {
+	width: 194px;
+	height: 194px;
 }
 
 .ease-title {
@@ -52,9 +67,96 @@
 
 .about-us h4 {
 	font-weight: bold;
+	margin-bottom: 20px;
 }
-
 
 .about-us-context.col {
 	min-width: 300px;
+}
+
+.paper-water {
+	width: 230px;
+	height: 214px;
+}
+
+@media only screen and (max-width: 463px) {
+	.ease img {
+		width: 106px;
+		height: 106px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.page-body h4 {
+		font-size: 18px;
+	}
+
+	.page-body h1 {
+		font-size: 32px;
+	}
+
+	.about-us-context {
+		text-align: center;
+	}
+
+	.about-us-image {
+		order: 1;
+		margin: 0 auto;
+	}
+
+	.our-staff {
+		order: 0;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.company {
+		order: 2;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.paper-water {
+		width: 160px;
+		height: 150px;
+	}
+
+	.paper.col, .water.col {
+		padding: 0;
+	}
+
+
+}
+
+@media only screen and (max-width: 858px) {
+	.about-us-context {
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 960px) {
+	.contact-us-left, .contact-us-right {
+		margin: 0 auto;
+	}
+
+	.contact-us-left {
+		margin-bottom: 105px;
+	}
+
+	.contact-us-left > div {
+		justify-content: center;
+	}
+
+	.contact-us-left-div {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.contact-us-left-div h4 {
+		text-align: center;
+	}
+
+	.contact-us-left-div img {
+		margin-bottom: 15px;
+	}
 }

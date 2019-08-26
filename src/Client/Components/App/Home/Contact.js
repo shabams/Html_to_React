@@ -35,19 +35,18 @@ class Contact extends Component {
 						</Col>
 						<Col className='contact-us-right' style={{ maxWidth: 652 }}>
 							<div className='contact-us-f'>
-								<Image src={contactform} />
 								<div className='contact-us-form'>
 									<h4 className='contact-us-form-title'>We’d love to hear from you!</h4>
 									<h6 style={{ color: '#374354' }}>Leave us a message and we’ll make sure to get back to you as soon as we can.</h6>
 									<Form className='contact-us-form-inside'>
 										<Row>
-											<Col>
+											<Col md={6} sm={12} xs={12}>
 											  <Form.Group controlId='formBasicName'>
 											    <Form.Label>Name*</Form.Label>
 											    <Form.Control type='text' style={{ width: '100%' }} />
 											  </Form.Group>
 											</Col>
-											<Col>
+											<Col md={6} sm={12} xs={12}>
 											  <Form.Group controlId='formBasicPhoneNumber'>
 											    <Form.Label>PhoneNumber*</Form.Label>
 											    <Form.Control type='text' style={{ width: '100%' }} />

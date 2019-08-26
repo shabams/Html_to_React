@@ -10,6 +10,17 @@
 	justify-content: space-between;
 }
 
+.contact-us-f {
+	/*background-image: url('../../../Assets/Images/contactform.png');*/
+	/*max-width: 612px;*/
+	/*min-height: 689px;*/
+	/*background-repeat: no-repeat;*/
+	border: 1px solid #e0e7ef;
+	padding: 50px 30px;
+	border-radius: 5px;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
 .contact-us-left.col {
 	/*padding-left: 43px;*/
 	flex-direction: column;
@@ -49,10 +60,11 @@
 }
 
 .contact-us-form {
-	position: absolute;
+/*	position: absolute;
 	top: 60px;
 	left: 30px;
-	right: 40px;
+	right: 40px;*/
+	/*padding-top: 60px;*/
 }
 
 .contact-us-form-title {
@@ -79,4 +91,25 @@
 	border: none;
 	margin-top: 20px;
 	padding: 10px 80px;
+}
+
+@media only screen and (max-width: 767px) {
+	.contact-us-title {
+		font-size: 32px;
+	}
+	.contact-us-form h4, .contact-us-form h6 {
+		text-align: center;
+	}
+
+	.contact-us-form h4, .contact-us h4 {
+		font-size: 18px;
+	}
+
+	.contact-us-form h6, .contact-us-form label, .contact-us-form button {
+		font-size: 14px;
+	}
+
+	.company {
+		margin-top: 30px;
+	}
 }

@@ -1,10 +1,15 @@
-.above-header {
-	margin-top: 60px;
-	padding-left: 15px;
-	padding-right: 15px;
+h1, h2, h3, h4, h5, h6, p, div, a, label {
+	color: #374354;
 }
 
-.above-header-left.col {
+.above-header {
+	margin-top: 60px;
+	padding-left: 40px;
+	padding-right: 60px;
+	justify-content: space-between;
+}
+
+.above-header-left {
 	padding-top: 160px;
 	/*padding-left: 43px;*/
 }
@@ -19,26 +24,31 @@
 	color: #ffffff;
 }
 
-.above-header-right.col {
+.above-header-right {
 	max-width: 564px;
 }
 
 .get-estimation {
+	border: 1px solid #e0e7ef;
+	padding: 50px 30px;
+	border-radius: 5px;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+	background-color: #ffffff;
+	max-width: 456px;
 	position: relative;
 }
 
-.get-estimation-form {
-	position: absolute;
-	top: 90px;
-	left: 80px;
-	right: 55px;
+.get-estimation img.get-estimation-pattern {
+    position: absolute;
+    top: -48px;
+    left: -52px;
+    max-width: 564px;
 }
 
 .get-estimation-form-title {
 	padding-left: 40px;
 	padding-right: 40px;
 	text-align: center;
-	color: #374354;
 	font-size: 24px;
 	margin-bottom: 40px;
 }
@@ -47,14 +57,114 @@
 	margin-bottom: 28px;
 }
 
-.get-estimation-form-inside label {
-	color: #374354;
-}
-
 .get-estimation-form-inside button {
 	color: #ffffff;
 	background-color: #374354;
 	border: none;
-	margin-top: 20px;
 	padding: 10px 40px;
+	margin-top: 20px;
 }
+
+.modal-lg, .modal-xl {
+	max-width: 606px !important;
+}
+
+.modal-header {
+	border-bottom: none !important;
+}
+
+.modal-footer {
+	border-top: none !important;
+}
+
+.modal-body-inside {
+	width: 476px;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-left: 70px;
+	padding-right: 70px;
+	border-bottom: 1px #dededf solid;
+	padding-bottom: 34px;
+}
+
+.modal-body-inside > div {
+	text-align: center;
+}
+
+.modal-footer {
+	margin-bottom: 40px;
+}
+
+.modal-footer-inside {
+	width: 476px;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.right button.schedule {
+	color: #374354;
+	background-color: #3ff5b8;
+	border: none;
+	padding: 10px 35px;
+}
+
+button.later {
+	color: #ffffff;
+	background-color: #374354;
+	border: none;
+	padding: 10px 65px;
+}
+
+@media only screen and (max-width: 767px) {
+	.above-header-left h1 {
+		font-size: 32px;
+	}
+
+	.get-estimation-form-title {
+		font-size: 18px;
+	}
+
+	.get-estimation-form-inside label, .get-estimation-form-inside button {
+		font-size: 14px;
+	}
+
+	.get-estimation {
+		position: relative;
+	}
+
+	.get-estimation-pattern-top {
+		width: 80%;
+		position: absolute;
+		top: -50px;
+	}
+
+	.get-estimation-pattern-bottom {
+		position: absolute;
+		bottom: -45px;
+		right: 20px;
+	}
+
+	.above-header {
+		margin-top: 60px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+@media only screen and (max-width: 845px) {
+	.above-header-right {
+		margin: 0 auto;
+	}
+}
+
+@media only screen and (max-width: 1162px) {
+	.above-header-right, .above-header-left {
+		margin: 0 auto;
+	}
+
+	.above-header-right {
+		margin-top: 100px;
+	}
+}	

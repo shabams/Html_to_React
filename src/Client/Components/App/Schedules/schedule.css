@@ -1,0 +1,89 @@
+.schedule-page {
+	min-height: 901px;
+}
+
+.schedule-background-left {
+	position: absolute;
+	bottom: 100px;
+	z-index: 100;
+}
+
+.schedule-background-right {
+	position: absolute;
+	right: 0;
+	top: 247px;
+	z-index: 100;
+}
+
+.schedule-page-body {
+	max-width: 1366px;
+	margin: 0 auto;
+}
+
+.shcedule-page-body .navbar-light .navbar-nav .nav-link {
+	color: #000 !important;
+	font-size: 20px;
+}
+
+.schedule-page-body h4 {
+	margin-top: 60px;
+}
+
+.schedule-page-body h1 {
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+.picky-date-time {
+	box-shadow: none;
+}
+
+.class-date-picker {
+
+}
+
+.picky-date-time-calendar__table-cel {
+	border: none;
+	padding: 10px 35px;
+}
+
+.picky-date-time-calendar__table-cel.m {
+	font-size: 20px;
+	width: 110px;
+}
+
+.picky-date-time-highlight_off:before {
+	display: none;
+}
+
+.picky-date-time-calendar__button {
+	display: none;
+}
+
+.picky-date-time-calendar__header {
+	margin-bottom: 70px;
+}
+
+@media only screen and (max-width: 850px) {
+  	.picky-date-time-calendar__table-cel {
+		border: none;
+		padding: 10px 20px;
+	}
+
+	.picky-date-time-calendar__table-cel.m {
+		font-size: 20px;
+		width: 75px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+  	.picky-date-time-calendar__table-cel {
+		border: none;
+		padding: 10px 5px;
+	}
+
+	.picky-date-time-calendar__table-cel.m {
+		font-size: 20px;
+		width: 56px;
+	}
+}

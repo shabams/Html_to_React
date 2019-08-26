@@ -16,7 +16,7 @@ class Footer extends Component {
 					</div>
 					<div className='footer-quick-access'>
 						<h4>Quick Access</h4>
-						<div className='d-flex'>
+						<div className='d-flex' style={{ flexWrap: 'wrap' }}>
 							<div className='access-left'>
 								<a href="#"><p>Home</p></a>
 								<a href="#"><p>Schedule Now</p></a>
