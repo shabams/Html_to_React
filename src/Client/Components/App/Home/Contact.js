@@ -9,7 +9,7 @@ import location from '../../../Assets/Images/location.png';
 class Contact extends Component {
 	render() {
 		return(
-			<div className='contact'>
+			<div className='contact' id='contactUs'>
 				<Container fluid>
 					<h1 className='contact-us-title' style={{ textAlign: 'center', fontWeight: 'bold', color: '#374354' }}>Contact Us</h1>
 					<Row className='contact-us'>

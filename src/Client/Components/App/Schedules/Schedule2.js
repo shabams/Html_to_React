@@ -6,6 +6,7 @@ import { Image } from 'react-bootstrap';
 import './schedule.css';
 import backgroundLeft from '../../../Assets/Images/background-left-147-252.png';
 import backgroundRight from '../../../Assets/Images/background-right-133-380.png';
+import { changeDate } from '../../../Actions/Schedule';
 
 class Schedule2 extends Component {
 	constructor(props) {
@@ -38,7 +39,6 @@ class Schedule2 extends Component {
 	onDatePicked(res) {
 		const { date, month, year } = res;
 		this.setState({ year: year, month: month, date: date });
-		console.log(res);
 	}
 
 	onResetDate(res) {

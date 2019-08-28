@@ -72,7 +72,7 @@ const FreeToilet = props => {
 
 const AboutUs = props => {
 	return (
-		<div className="about-us">
+		<div className="about-us" id='aboutUs'>
 			<h1 className='about-us-title'>About Us</h1>
 			<Row className='about-us-body'>
 				<Col md={6} sm={12} xs={12} className='about-us-image d-flex justify-content-center' style={{ padding: 0 }}>

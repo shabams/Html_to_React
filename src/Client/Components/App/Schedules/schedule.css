@@ -64,6 +64,61 @@
 	margin-bottom: 70px;
 }
 
+/*TimeLine Page*/
+
+.available-time-body, .booking-information {
+	max-width: 792px;
+	margin: 0 auto;
+}
+
+.available-time {
+	flex-wrap: wrap;
+	border-collapse: collapse;
+	justify-content: center;
+}
+
+.each-time {
+	flex: 20%;
+	max-width: 20%;
+	min-width: 114px;
+	height: 55px;
+	/*max-width: 152px;*/
+	justify-content: center;
+    align-items: center;
+    border: 1px solid #f6f6f6;
+}
+
+.each-time:hover {
+	cursor: pointer;
+}
+
+.each-time h6, .selected-date {
+	color: #374354;
+	font-size: 18px;
+}
+
+.selected-date {
+	text-align: right;
+	margin-bottom: 15px;
+}
+
+.booking-information {
+	padding: 0 20px;
+}
+
+/*Schedule5 Begin*/
+.confirming-date {
+	background-image: url('../../../Assets/Images/confirming-booking-background.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.confirming-data > div {
+	justify-content: flex-start;
+
+}
+/*Schedule5 End*/
+
 @media only screen and (max-width: 850px) {
   	.picky-date-time-calendar__table-cel {
 		border: none;
@@ -85,5 +140,9 @@
 	.picky-date-time-calendar__table-cel.m {
 		font-size: 20px;
 		width: 56px;
+	}
+
+	label.form-label {
+		font-size: 14px;
 	}
 }
