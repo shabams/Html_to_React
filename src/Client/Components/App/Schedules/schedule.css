@@ -1,3 +1,7 @@
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
 .schedule-page {
 	min-height: 901px;
 }
@@ -18,6 +22,11 @@
 .schedule-page-body {
 	max-width: 1366px;
 	margin: 0 auto;
+	position: relative;
+}
+
+.shedule-page-body-inside {
+	padding-top: 100px;
 }
 
 .shcedule-page-body .navbar-light .navbar-nav .nav-link {
@@ -26,12 +35,22 @@
 }
 
 .schedule-page-body h4 {
-	margin-top: 60px;
+	/*margin-top: 60px;*/
 }
 
 .schedule-page-body h1 {
 	margin-top: 40px;
 	margin-bottom: 30px;
+	position: relative;
+}
+
+.back {
+	font-size: 20px;
+	color: #393c40;
+	text-align: left;
+	position: absolute;
+	left: 10px;
+	top: 10px;
 }
 
 .picky-date-time {
@@ -107,17 +126,100 @@
 }
 
 /*Schedule5 Begin*/
+.confirmation {
+	max-width: 686px;
+	margin: 0 auto;
+	justify-content: space-between;
+	margin-bottom: 60px;
+}
+
 .confirming-date {
 	background-image: url('../../../Assets/Images/confirming-booking-background.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+	height: 210px;
+	min-width: 208px;
+	padding-left: 20px;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.confirming-date p {
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: left;
+}
+
+.confirming-date p:nth-child(2) {
+	font-weight: normal;
+	font-size: 32px;
 }
 
 .confirming-data > div {
-	justify-content: flex-start;
-
+	/*justify-content: flex-start;*/
+	text-align: left;
 }
+
+.confirming-data > div > div + div {
+	margin-left: 50px;
+}
+
+.confirming-data > div + div {
+	margin-top: 25px;
+}
+
+.confirming-data > div > div > h6 {
+	color: #9a9a9a;
+	font-size: 16px;
+	padding-bottom: 5px;
+}
+
+.confirming-data > div > div > h5 {
+	font-size: 18px;
+	color: #333333;
+}
+
+button.confirming-button {
+	background-color: #374354;
+	padding: 15px 40px;
+	border: none;
+	margin-bottom: 60px;
+}
+
 /*Schedule5 End*/
+
+/*Schedule6 Begin*/
+.schedule-viola {
+	max-width: 792px;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.schedule-viola img {
+	align-self: center;
+	margin-top: 130px;
+	margin-bottom: 40px;
+}
+
+.schedule-viola h1 {
+	font-size: 52px;
+	color: #12261f;
+	margin-bottom: 20px;
+}
+
+.schedule-viola p {
+	font-size: 24px;
+	color: #374354;
+}
+
+.schedule-viola a {
+	font-size: 24px;
+	color: #374354;
+	margin-top: 55px;
+	text-decoration: underline;
+}
+/*Schedule6 End*/
 
 @media only screen and (max-width: 850px) {
   	.picky-date-time-calendar__table-cel {
@@ -132,6 +234,12 @@
 }
 
 @media only screen and (max-width: 500px) {
+	/*background eclipse display none*/
+	.schedule-background-left, .schedule-background-right {
+		display: none;
+	} 
+	/*background eclipse*/
+
   	.picky-date-time-calendar__table-cel {
 		border: none;
 		padding: 10px 5px;
@@ -145,4 +253,54 @@
 	label.form-label {
 		font-size: 14px;
 	}
+
+	/*schedule5*/
+	.confirming-data > div > div > h6 {
+		font-size: 14px;
+	}
+
+	.confirming-data > div > div > h5 {
+		font-size: 16px;
+	}
+	/*schedule5*/
+
+	/*schedule6*/
+	.schedule-viola h1 {
+		font-size: 32px;
+	}
+
+	.schedule-viola p, .schedule-viola a {
+		font-size: 18px;
+	}
+	/*schedule6*/
+}
+
+@media only screen and (max-width: 650px) {
+	/*schedule5*/
+	.confirmation {
+		flex-direction: column;
+		padding: 0 50px;
+	}
+
+	.confirming-date {
+		height: 140px;
+	}
+
+	.confirming-data > div {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.confirming-data > div > div + div {
+		margin-left: 0;
+	}
+
+	.confirming-data > div + div {
+		margin-top: 0px;
+	}
+
+	.confirming-data > div > div {
+		margin-top: 30px;
+	}
+	/*schedule5*/
 }

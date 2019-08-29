@@ -1,0 +1,20 @@
+.home {
+	position: relative;
+}
+
+.main-back-left {
+	position: absolute;
+	top: 3455px;
+}
+
+.main-back-right {
+	position: absolute;
+	top: 2955px;
+	right: 0;
+}
+
+@media only screen and (max-width: 960px) {
+	.main-back-left, .main-back-right {
+		display: none;
+	}
+}

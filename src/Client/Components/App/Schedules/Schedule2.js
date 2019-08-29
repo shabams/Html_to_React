@@ -118,30 +118,32 @@ class Schedule2 extends Component {
       			<Image src={backgroundRight} className='schedule-background-right' />
       			<div className='schedule-page-body' style={{ textAlign: 'center' }}>
       				<ScheduleNavBar />
-      				<h4 style={{ color: '#374354' }}>You are 2 short steps, away from booking!</h4>
-      				<h1 style={{ color: '#12261f' }}>Please select a day</h1>
-      				<div className='class-date-picker d-flex justify-content-center'>
-	      				<PickyDateTime
-						  size="m"
-						  mode={0}
-						  locale="en-us"
-						  show={showPickyDateTime}
-						  onClose={() => this.onClose()}
-						  defaultDate={`${month}/${date}/${year}`}
-						  onYearPicked={res => this.onYearPicked(res)}
-						  onMonthPicked={res => this.onMonthPicked(res)}
-						  onDatePicked={res => this.onDatePicked(res)}
-						  onResetDate={res => this.onResetDate(res)}
-						  onResetDefaultDate={res => this.onResetDefaultDate(res)}
-						  onSecondChange={res => this.onSecondChange(res)}
-						  onMinuteChange={res => this.onMinuteChange(res)}
-						  onHourChange={res => this.onHourChange(res)}
-						  onMeridiemChange={res => this.onMeridiemChange(res)}
-						  onResetTime={res => this.onResetTime(res)}
-						  onResetDefaultTime={res => this.onResetDefaultTime(res)}
-						  onClearTime={res => this.onClearTime(res)}
-						  onChange={() => console.log("ssssss")}
-						/>
+      				<div className='shedule-page-body-inside' style={{ paddingTop: 75 }}>
+	      				<h4 style={{ color: '#374354' }}>You are 2 short steps, away from booking!</h4>
+	      				<h1 style={{ color: '#12261f' }}>Please select a day</h1>
+	      				<div className='class-date-picker d-flex justify-content-center'>
+		      				<PickyDateTime
+							  size="m"
+							  mode={0}
+							  locale="en-us"
+							  show={showPickyDateTime}
+							  onClose={() => this.onClose()}
+							  defaultDate={`${month}/${date}/${year}`}
+							  onYearPicked={res => this.onYearPicked(res)}
+							  onMonthPicked={res => this.onMonthPicked(res)}
+							  onDatePicked={res => this.onDatePicked(res)}
+							  onResetDate={res => this.onResetDate(res)}
+							  onResetDefaultDate={res => this.onResetDefaultDate(res)}
+							  onSecondChange={res => this.onSecondChange(res)}
+							  onMinuteChange={res => this.onMinuteChange(res)}
+							  onHourChange={res => this.onHourChange(res)}
+							  onMeridiemChange={res => this.onMeridiemChange(res)}
+							  onResetTime={res => this.onResetTime(res)}
+							  onResetDefaultTime={res => this.onResetDefaultTime(res)}
+							  onClearTime={res => this.onClearTime(res)}
+							  onChange={() => console.log("ssssss")}
+							/>
+						</div>
 					</div>
       			</div>
       		</div>

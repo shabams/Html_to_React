@@ -8,7 +8,7 @@ class ScheduleNavBar extends Component {
 		return(
 			<>
 				<Navbar expand='lg'>
-          <Navbar.Brand href='#home'>
+          <Navbar.Brand href='/' >
             <Image src={logo} alt='Logo' />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' style={{border: 'none',}}/>

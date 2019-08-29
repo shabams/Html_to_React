@@ -29,13 +29,18 @@ class Schedule3 extends Component {
       			<Image src={backgroundRight} className='schedule-background-right' />
       			<div className='schedule-page-body' style={{ textAlign: 'center' }}>
       				<ScheduleNavBar />
-      				<h1 style={{ color: '#12261f' }}>Please select an available time</h1>
-      				<div className='available-time-body'>
-      					<div className='selected-date'>
-      						Thu, July 29
-      					</div>
-      					{availableTime}
-      				</div>
+      				<div className='shedule-page-body-inside'>
+	      				<h1 style={{ color: '#12261f' }}>
+	      					<a href="/schedule2" className='back'>Back</a>
+	      					Please select an available time
+	      				</h1>
+	      				<div className='available-time-body'>
+	      					<div className='selected-date'>
+	      						Thu, July 29
+	      					</div>
+	      					{availableTime}
+	      				</div>
+	      			</div>
       			</div>
       		</div>
 		)

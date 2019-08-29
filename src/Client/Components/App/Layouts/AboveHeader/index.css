@@ -103,18 +103,74 @@ h1, h2, h3, h4, h5, h6, p, div, a, label {
 	padding-right: 50px;
 }
 
-.right button.schedule {
+button.schedule {
 	color: #374354;
 	background-color: #3ff5b8;
 	border: none;
-	padding: 10px 35px;
 }
 
 button.later {
 	color: #ffffff;
 	background-color: #374354;
 	border: none;
-	padding: 10px 65px;
+}
+
+button.schedule, button.later {
+	width: 166px;
+	padding: 10px 0;
+}
+
+@media only screen and (max-width: 660px) {
+	.modal-lg, .modal-xl {
+		padding: 0 10px;
+	}
+
+	.modal-body-inside {
+		flex-direction: column;
+		margin-top: 20px;
+	}
+
+	.modal-header {
+		border-bottom: none !important;
+	}
+
+	.modal-footer {
+		border-top: none !important;
+	}
+
+	.modal-body-inside > div {
+		text-align: center;
+	}
+
+	.modal-body-inside > div.left {
+		margin-bottom: 30px;
+	}
+
+	.modal-body-inside h6 {
+		font-size: 14px;
+	}
+
+	.modal-body-inside h4 {
+		font-size: 18px;
+		padding: 0 10px;
+	}
+
+	.modal-body-inside h1 {
+		font-size: 40px;
+	}
+
+	.modal-footer {
+		margin-bottom: 40px;
+	}
+
+	.modal-footer-inside {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.modal-footer-inside .left {
+		margin-bottom: 20px;
+	}
 }
 
 @media only screen and (max-width: 767px) {

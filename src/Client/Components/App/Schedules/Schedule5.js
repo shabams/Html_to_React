@@ -20,52 +20,60 @@ class Schedule5 extends Component {
       			<Image src={backgroundRight} className='schedule-background-right' />
       			<div className='schedule-page-body' style={{ textAlign: 'center' }}>
       				<ScheduleNavBar />
-      				<h1 style={{ color: '#12261f' }}>Confirmation</h1>
-      				<div className='Confirmation'>
-      					<div className='confirming-date'>
-						</div>
-						<div className='confirming-data'>
-							<div className='name-phone d-flex'>
-								<div className='full-name'>
-									<h6>Full Name</h6>
-									<h5>Fulan Al Fulani</h5>
-								</div>
-								<div className='phone-number'>
-									<h6>Phone Number</h6>
-									<h5>+1 123 456 789</h5>
-								</div>
+      				<div className='shedule-page-body-inside'>
+	      				<h1 style={{ color: '#12261f' }}>
+	      					<a href="/schedule4" className='back'>Back</a>
+	      					Confirmation
+	      				</h1>
+	      				<div className='confirmation d-flex'>
+	      					<div className='confirming-date d-flex'>
+	      						<p>THU</p>
+	      						<p>July 29</p>
+	      						<p>9 AM</p>
 							</div>
+							<div className='confirming-data'>
+								<div className='name-phone d-flex'>
+									<div className='full-name'>
+										<h6>Full Name</h6>
+										<h5>Fulan Al Fulani</h5>
+									</div>
+									<div className='phone-number'>
+										<h6>Phone Number</h6>
+										<h5>+1 123 456 789</h5>
+									</div>
+								</div>
 
-							<div className='state-city-address d-flex'>
-								<div className='state'>
-									<h6>State</h6>
-									<h5>Ohio</h5>
+								<div className='state-city-address d-flex'>
+									<div className='state'>
+										<h6>State</h6>
+										<h5>Ohio</h5>
+									</div>
+									<div className='city'>
+										<h6>City</h6>
+										<h5>Oxford</h5>
+									</div>
+									<div className='address'>
+										<h6>123, St name, lorem ipsum.</h6>
+										<h5>Oxford</h5>
+									</div>
 								</div>
-								<div className='city'>
-									<h6>City</h6>
-									<h5>Oxford</h5>
-								</div>
-								<div className='address'>
-									<h6>123, St name, lorem ipsum.</h6>
-									<h5>Oxford</h5>
-								</div>
-							</div>
 
-							<div className='rooms-bathrooms d-flex'>
-								<div className='rooms'>
-									<h6>Number of rooms</h6>
-									<h5>3</h5>
-								</div>
-								<div className='Number of bathrooms'>
-									<h6>Number of bathrooms</h6>
-									<h5>1</h5>
+								<div className='rooms-bathrooms d-flex'>
+									<div className='rooms'>
+										<h6>Number of rooms</h6>
+										<h5>3</h5>
+									</div>
+									<div className='Number of bathrooms'>
+										<h6>Number of bathrooms</h6>
+										<h5>1</h5>
+									</div>
 								</div>
 							</div>
-						</div>
-      				</div>
-      				<Button variant="primary" className='confirming-button'>
-				        Confirm Booking
-				    </Button>
+	      				</div>
+	      				<Button variant="primary" className='confirming-button'>
+					        Confirm Booking
+					    </Button>
+					</div>
       			</div>
       		</div>
 		)
