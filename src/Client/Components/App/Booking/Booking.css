@@ -1,6 +1,4 @@
-.booking-confirming {
-
-}
+/*booking2*/
 .booking-confirming-date {
 	background-image: url('../../../Assets/Images/confirming-booking-background.png');
 	background-repeat: no-repeat;
@@ -35,7 +33,7 @@
 }
 
 .booking-confirming-data > div > div + div {
-	margin-top: 25px;
+	margin-top: 30px;
 }
 
 .booking-confirming-data > div + div {
@@ -53,6 +51,22 @@
 	color: #333333;
 }
 
+.request-edit {
+	margin-top: 30px;
+}
+
+.request-edit h6 {
+	color: #9a9a9a;
+	font-size: 16px;
+}
+
+.request-edit a {
+	color: #374354;
+	font-size: 16px;
+	margin-top: -3px;
+	padding-left: 10px;
+}
+
 button.confirming-button {
 	background-color: #374354;
 	padding: 15px 40px;
@@ -60,15 +74,97 @@ button.confirming-button {
 	margin-bottom: 60px;
 }
 
+button.find {
+	color: #ffffff;
+	background-color: #374354;
+	border: none;
+	width: 140px;
+	padding: 8px 0;
+
+}
+
+.booking2-title {
+	margin-bottom: 65px;
+	line-height: 40px;
+}
+/*booking2*/
+
+/*booking1*/
+.booking1-body {
+	justify-content: space-between;
+}
+
+.booking1-body h1 {
+	margin-bottom: 15px;
+}
+
+.booking1-body h4 {
+	margin-bottom: 40px;
+}
+
+
+.booking1-body > div + div {
+	margin-left: 20px; 
+}
+
+.booking1-row.row {
+	margin: 0;
+}
+
+/*booking1*/
+
+@media only screen and (max-width: 850px) {
+	.booking1-body {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.booking1-context {
+		align-items: center;
+		text-align: center;
+	}
+}
 
 @media only screen and (max-width: 650px) {
-	/*schedule5*/
+	/*schedule5, booking2*/
 	.booking1 {
 		flex-direction: column;
-		padding: 0 50px;
+		/*padding: 0 50px;*/
 	}
 
 	.booking-confirming-date {
 		height: 140px;
+	}
+
+	.booking2-title {
+		text-align: center;
+		padding: 0 40px;
+		font-size: 18px;
+	}
+
+	.confirmation {
+		padding: 0;
+	}
+
+	.booking2-row.row {
+		display: none;
+	}
+
+	.booking2 {
+		margin-top: 50px;
+	}
+	/*schedule5, booking2*/
+
+	.booking1-context h4 {
+		font-size: 18px;
+	}
+
+	.booking1-context h1 {
+		font-size: 24px;
+		margin-top: 35px;
+	}
+
+	.booking1-row.row > div {
+		margin-bottom: 25px;
 	}
 }
