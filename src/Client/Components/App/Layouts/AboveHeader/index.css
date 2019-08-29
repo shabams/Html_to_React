@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6, p, div, a, label {
 }
 
 .modal-body-inside {
-	width: 476px;
+	max-width: 476px;
 	flex-direction: row;
 	justify-content: space-between;
 	padding-left: 70px;
