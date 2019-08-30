@@ -7,6 +7,7 @@ import axios from 'axios'
 
 
 export const selectDate = (selected_date) => async dispatch => {
+	console.log(selected_date);
 	dispatch({
 		type: SELECTED_DATE,
 		payload: selected_date

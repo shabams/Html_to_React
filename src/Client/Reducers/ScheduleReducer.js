@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
     case SELECTED_DATE:
     	return {
     		...state,
-    		selected_data: action.payload
+    		selected_date: action.payload
     	};
 
     case SELECTED_TIME:

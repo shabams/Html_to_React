@@ -1,4 +1,9 @@
 /*booking2*/
+
+.booking-confirming {
+	margin-bottom: 80px;
+}
+
 .booking-confirming-date {
 	background-image: url('../../../Assets/Images/confirming-booking-background.png');
 	background-repeat: no-repeat;

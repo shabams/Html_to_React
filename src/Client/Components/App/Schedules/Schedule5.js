@@ -30,13 +30,13 @@ class Schedule5 extends Component {
       				<ScheduleNavBar />
       				<div className='shedule-page-body-inside'>
 	      				<h1 style={{ color: '#12261f' }}>
-	      					<a href="/schedule4" className='back'>Back</a>
+	      					<a href="#" className='back' onClick={() => this.props.history.push('/schedule4')}>Back</a>
 	      					Confirmation
 	      				</h1>
 	      				<div className='confirmation d-flex'>
 	      					<div className='confirming-date d-flex'>
-	      						<p>{days[new Date(this.props.addBookingInformation.date).getDay()-1]}</p>
-	      						<p>{months[new Date(this.props.addBookingInformation.date).getMonth()]} {new Date(this.props.addBookingInformation.date).getDate()}</p>
+	      						<p>{days[new Date(this.props.addBookingInformation.date).getDay()-1] || ''}</p>
+	      						<p>{months[new Date(this.props.addBookingInformation.date).getMonth()] || ''} {new Date(this.props.addBookingInformation.date).getDate() || ''}</p>
 	      						<p>{this.props.addBookingInformation.time}</p>
 							</div>
 							<div className='confirming-data'>

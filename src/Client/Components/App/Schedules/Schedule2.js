@@ -6,6 +6,7 @@ import { Image } from 'react-bootstrap';
 import './schedule.css';
 import backgroundLeft from '../../../Assets/Images/background-left-147-252.png';
 import backgroundRight from '../../../Assets/Images/background-right-133-380.png';
+import step1 from '../../../Assets/Images/step1.svg';
 import { selectDate } from '../../../Actions/Schedule';
 import { connect } from 'react-redux';
 
@@ -39,6 +40,7 @@ class Schedule2 extends Component {
 
 	onDatePicked(res) {
 		const { date, month, year } = res;
+		const {selectDate} = this.props;
 		this.setState({ year: year, month: month, date: date });
 		selectDate(new Date(year, month, date));
 		this.props.history.push('/Schedule3');
@@ -121,30 +123,39 @@ class Schedule2 extends Component {
       			<Image src={backgroundRight} className='schedule-background-right' />
       			<div className='schedule-page-body' style={{ textAlign: 'center' }}>
       				<ScheduleNavBar />
-      				<div className='shedule-page-body-inside' style={{ paddingTop: 75 }}>
-	      				<h4 style={{ color: '#374354' }}>You are 2 short steps, away from booking!</h4>
-	      				<h1 style={{ color: '#12261f' }}>Please select a day</h1>
-	      				<div className='class-date-picker d-flex justify-content-center'>
-		      				<PickyDateTime
-							  size="m"
-							  mode={0}
-							  locale="en-us"
-							  show={showPickyDateTime}
-							  onClose={() => this.onClose()}
-							  defaultDate={`${month}/${date}/${year}`}
-							  onYearPicked={res => this.onYearPicked(res)}
-							  onMonthPicked={res => this.onMonthPicked(res)}
-							  onDatePicked={res => this.onDatePicked(res)}
-							  onResetDate={res => this.onResetDate(res)}
-							  onResetDefaultDate={res => this.onResetDefaultDate(res)}
-							  onSecondChange={res => this.onSecondChange(res)}
-							  onMinuteChange={res => this.onMinuteChange(res)}
-							  onHourChange={res => this.onHourChange(res)}
-							  onMeridiemChange={res => this.onMeridiemChange(res)}
-							  onResetTime={res => this.onResetTime(res)}
-							  onResetDefaultTime={res => this.onResetDefaultTime(res)}
-							  onClearTime={res => this.onClearTime(res)}
-							/>
+      				<div className='shedule-page-body-inside'>
+      					<div style={{ position: 'relative'}}>
+		      				<h4 style={{ color: '#374354' }}>You are <span style={{fontWeight: 'bold'}}>2 short steps</span>, away from booking!</h4>
+		      				<h1 style={{ color: '#12261f' }}>Please select a day</h1>
+		      				<div className='class-date-picker d-flex justify-content-center'>
+			      				<PickyDateTime
+								  size="m"
+								  mode={0}
+								  locale="en-us"
+								  show={showPickyDateTime}
+								  onClose={() => this.onClose()}
+								  defaultDate={`${month}/${date}/${year}`}
+								  onYearPicked={res => this.onYearPicked(res)}
+								  onMonthPicked={res => this.onMonthPicked(res)}
+								  onDatePicked={res => this.onDatePicked(res)}
+								  onResetDate={res => this.onResetDate(res)}
+								  onResetDefaultDate={res => this.onResetDefaultDate(res)}
+								  onSecondChange={res => this.onSecondChange(res)}
+								  onMinuteChange={res => this.onMinuteChange(res)}
+								  onHourChange={res => this.onHourChange(res)}
+								  onMeridiemChange={res => this.onMeridiemChange(res)}
+								  onResetTime={res => this.onResetTime(res)}
+								  onResetDefaultTime={res => this.onResetDefaultTime(res)}
+								  onClearTime={res => this.onClearTime(res)}
+								/>
+							</div>
+							<div className='step'>
+								<div style={{ position: 'absolute' }}>
+									<Image src={step1} />
+									<h6 style={{ color: '#12261f', 'font-weight': 'bold', position: 'absolute', top: 0, left: -45 }}>step1</h6>
+									<h6 style={{ color: '#12261f', position: 'absolute', left: -45, bottom: -8 }}>step2</h6>
+								</div>
+							</div>
 						</div>
 					</div>
       			</div>
@@ -157,4 +168,4 @@ const mapStateToProps = state => ({
 	s_date: state.schedule.selected_date
 });
 
-export default withRouter(connect(mapStateToProps, { })(Schedule2));
+export default withRouter(connect(mapStateToProps, { selectDate })(Schedule2));

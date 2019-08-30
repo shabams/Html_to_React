@@ -130,13 +130,13 @@ class AboveHeader extends Component {
 									<Col md={6} sm={12} xs={12}>
 									  <Form.Group controlId='formBasicState'>
 									    <Form.Label>State</Form.Label>
-									    <Form.Control type='text' placeholder='Ohio' ref={input => this.state = input} />
+									    <Form.Control type='text' placeholder='Ohio' ref={input => this.state = input} defaultValue='Ohio' />
 									  </Form.Group>
 									</Col>
 									<Col md={6} sm={12} xs={12}>
 									  <Form.Group controlId='formBasicCity'>
 									    <Form.Label>City</Form.Label>
-									    <Form.Control type='text' placeholder='Oxford' ref={input => this.city = input} />
+									    <Form.Control type='text' placeholder='Oxford' ref={input => this.city = input} defaultValue='Oxford' />
 									  </Form.Group>
 									</Col>
 								</Row>

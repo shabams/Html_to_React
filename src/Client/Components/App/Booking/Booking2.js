@@ -48,14 +48,15 @@ class BookingConfirming extends React.Component {
 	}
 
 	render() {
+		const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ];
+		const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
 		return (
 			<>
-				<h4 className='booking2-title'>We found 2 bookings matching your email and phone number</h4>
 				<div className='booking-confirming d-flex'>
 					<div className='booking-confirming-date d-flex'>
-						<p>THU</p>
-						<p>July 29</p>
-						<p>9 AM</p>
+						<p>{days[new Date(this.props.data.date_booked).getDay()-1] || ''}</p>
+  						<p>{months[new Date(this.props.data.date_booked).getMonth()] || ''} {new Date(this.props.data.date_booked).getDate() || ''}</p>
+  						<p>{this.props.data.time.split(' ')[1] + " " + this.props.data.time.split(' ')[2]}</p>
 					</div>
 					<div className=''>
 						<div className='booking-confirming-data d-flex'>
@@ -120,14 +121,15 @@ class BookingConfirmingMobile extends React.Component {
 	}
 
 	render() {
+		const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ];
+		const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
 		return (
 			<>
-				<h4 className='booking2-title'>We found 2 bookings matching your email and phone number</h4>
 				<div className='confirmation d-flex'>
 					<div className='confirming-date d-flex'>
-						<p>THU</p>
-						<p>July 29</p>
-						<p>9 AM</p>
+						<p>{days[new Date(this.props.data.date_booked).getDay()-1] || ''}</p>
+  						<p>{months[new Date(this.props.data.date_booked).getMonth()] || ''} {new Date(this.props.data.date_booked).getDate() || ''}</p>
+  						<p>{this.props.data.time}</p>
 					</div>
 					<div className='confirming-data'>
 						<div className='name-phone d-flex'>
@@ -207,6 +209,7 @@ class Booking2 extends React.Component {
 	render() {
 		const width = this.state.width;
 		const bookedData = this.props.bookedInformation || [];
+		console.log(this.props.bookedInformation);
 		return (
 			<div style={{ maxWidth: '860px', padding: '0 15px' }} className="booking2">
 				<Row style={{ marginBottom: 50, marginTop: 120 }} className='booking2-row'>
@@ -230,6 +233,7 @@ class Booking2 extends React.Component {
 					</Col>
 				</Row>
 				{ width <=	 650 ?  <a href='/Booking1' style={{ color: '#393c40', fontSize: '18px' }}>Back</a>  : <div /> }
+				<h4 className='booking2-title'>We found {bookedData.length} bookings matching your email and phone number</h4>
 				{
 					bookedData.length > 0 ?
 						bookedData.map(booked => 

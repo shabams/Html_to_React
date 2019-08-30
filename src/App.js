@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import history from './history';
 import HomePage from './Client/Components/App/Home';
 import Schedule2 from './Client/Components/App/Schedules/Schedule2';
 import Schedule3 from './Client/Components/App/Schedules/Schedule3';
@@ -22,7 +23,7 @@ class App extends Component {
   render() {
     return(
       <Provider store={Store}>
-        <Router>
+        <Router history={history}>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/Schedule2" component={Schedule2} />
           <Route exact path="/Schedule3" component={Schedule3} />

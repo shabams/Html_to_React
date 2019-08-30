@@ -7,3 +7,7 @@
 	border-radius: 5px;
 }
 
+.navbar-expand-lg .navbar-nav .nav-link.active {
+	border: 1px solid #3ff5b8;
+	border-radius: 5px;
+}

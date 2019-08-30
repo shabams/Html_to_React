@@ -1,5 +1,6 @@
 import {
-	GET_ESTIMATION
+	GET_ESTIMATION,
+	BOOKING_INFORMATION
 } from './Type'
 
 import axios from 'axios'
@@ -11,5 +12,9 @@ export const getEstimation = (data) => async dispatch => {
 	dispatch({
 		type: GET_ESTIMATION,
 		payload: respond.data.price
+	})
+	dispatch({
+		type: BOOKING_INFORMATION,
+		payload: data
 	})
 }

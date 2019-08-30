@@ -226,7 +226,47 @@ button.confirming-button {
 	margin-top: 55px;
 	text-decoration: underline;
 }
+
+.step {
+	position: absolute;
+    top: 240px;
+    right: 100px;
+}
+
+.step-1 {
+	position: absolute;
+    top: 120px;
+    right: 100px;
+}
+
+.step-2 {
+	position: absolute;
+    top: 120px;
+    right: 100px;
+}
+
+.picky-date-time.visible {
+	padding: 0;
+}
+
+.picky-date-time-calendar__header {
+	margin-bottom: 30px;
+}
 /*Schedule6 End*/
+
+@media only screen and (max-width: 1180px) {
+	.step {
+		display: none;
+	}
+
+	.step-1 {
+		display: none;
+	}
+
+	.step-2 {
+		display: none;
+	}
+}
 
 @media only screen and (max-width: 850px) {
   	.picky-date-time-calendar__table-cel {
@@ -240,7 +280,16 @@ button.confirming-button {
 	}
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 350px) {
+	.picky-date-time-calendar__table-cel {
+		border: none;
+		padding: 10px 0px;
+	}
+	.picky-date-time-calendar__table-cel.m {
+		font-size: 15px !important;
+	}
+}
+@media only screen and (max-width: 580px) {
 	/*background eclipse display none*/
 	.schedule-background-left, .schedule-background-right {
 		display: none;
