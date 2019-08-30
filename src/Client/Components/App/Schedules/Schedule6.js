@@ -6,15 +6,17 @@ import { Image, Table, Row, Col, Form, Button } from 'react-bootstrap';
 import backgroundLeft from '../../../Assets/Images/background-left-147-252.png';
 import backgroundRight from '../../../Assets/Images/background-right-133-380.png';
 import sun from '../../../Assets/Images/sun.png';
+import { connect } from 'react-redux';
 
 import './schedule.css';
 
-class Schedule5 extends Component {
+class Schedule6 extends Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
+            console.log(this.props.addBookingInformation)
 		return (
       		<div className='schedule-page'>
       			<Image src={backgroundLeft} className='schedule-background-left' />
@@ -26,7 +28,7 @@ class Schedule5 extends Component {
       					<h1>Viola!</h1>
       					<p>You're all set</p>
       					<p>We'll send you a confirmation email within few minutes.</p>
-      					<a href="#">View booking details</a>
+      					<a href="#" onClick={() => this.props.history.push('/Booking1')}>View booking details</a>
       				</div>
       			</div>
       		</div>
@@ -34,4 +36,8 @@ class Schedule5 extends Component {
 	}
 }
 
-export default withRouter(Schedule5);
+const mapStateToProps = state => ({
+      addBookingInformation: state.booking.addBooking
+});
+
+export default withRouter(connect(mapStateToProps, { })(Schedule6));

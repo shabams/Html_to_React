@@ -125,9 +125,17 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 0 20px;
 }
 
+button.next {
+	color: #ffffff;
+	background-color: #374354;
+	border: none;
+	padding: 10px 40px;
+	margin-top: 20px;
+}
+
 /*Schedule5 Begin*/
 .confirmation {
-	max-width: 686px;
+	max-width: 650px;
 	margin: 0 auto;
 	justify-content: space-between;
 	margin-bottom: 60px;
@@ -198,7 +206,6 @@ button.confirming-button {
 
 .schedule-viola img {
 	align-self: center;
-	margin-top: 130px;
 	margin-bottom: 40px;
 }
 

@@ -5,6 +5,8 @@ import PickyDateTime from 'react-picky-date-time';
 import { Image, Table, Row } from 'react-bootstrap';
 import backgroundLeft from '../../../Assets/Images/background-left-147-252.png';
 import backgroundRight from '../../../Assets/Images/background-right-133-380.png';
+import { connect } from 'react-redux';
+import { selectTime } from '../../../Actions/Schedule';
 
 import './schedule.css';
 
@@ -13,13 +15,20 @@ class Schedule3 extends Component {
 		super(props);
 	}
 
+	handleTime = (t) => {
+		const { selectTime } = this.props;
+		selectTime(t);	
+		this.props.history.push('/Schedule4');
+	}
+
 	render() {
+		console.log(this.props.s_date);
 		const time = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM']
 		const availableTime = 
 			<div className='available-time d-flex' >
 				{time.map(t => {
 					return (
-						<div className='each-time d-flex'><h6>{t}</h6></div>
+						<div className='each-time d-flex' onClick={() => this.handleTime(t)}><h6>{t}</h6></div>
 					);
 				})}
 			</div>
@@ -47,4 +56,8 @@ class Schedule3 extends Component {
 	}
 }
 
-export default withRouter(Schedule3);
+const mapStateToProps = state => ({
+	s_date: state.schedule.selected_date
+});
+
+export default withRouter(connect(mapStateToProps, { selectTime })(Schedule3));

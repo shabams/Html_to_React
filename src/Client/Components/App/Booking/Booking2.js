@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { Row, Form, Col, Button, Modal, Image } from 'react-bootstrap';
 import './Booking.css';
 import mail from '../../../Assets/Images/mail1.png';
+import { connect } from 'react-redux';
+
 function MyVerticallyCenteredModal(props) {
   return (
     <Modal
@@ -60,37 +62,37 @@ class BookingConfirming extends React.Component {
 							<div className='name-state-numberofrooms d-flex'>
 								<div className='full-name'>	
 									<h6>Full Name</h6>
-									<h5>Fulan Al Fulani</h5>
+									<h5>{this.props.data.name}</h5>
 								</div>
 								<div className='state'>
 									<h6>State</h6>
-									<h5>Ohio</h5>
+									<h5>{this.props.data.state}</h5>
 								</div>
 								<div className='rooms'>
 									<h6>Number of rooms</h6>
-									<h5>3</h5>
+									<h5>{this.props.data.rooms}</h5>
 								</div>
 							</div>
 
 							<div className='state-city-address d-flex'>
 								<div className='phone-number'>
 									<h6>Phone Number</h6>
-									<h5>+1 123 456 789</h5>
+									<h5>{this.props.data.phone_no}</h5>
 								</div>
 								<div className='city'>
 									<h6>City</h6>
-									<h5>Oxford</h5>
+									<h5>{this.props.data.city}</h5>
 								</div>
 								<div className='Number of bathrooms'>
 									<h6>Number of bathrooms</h6>
-									<h5>1</h5>
+									<h5>{this.props.data.bathrooms}</h5>
 								</div>							
 							</div>
 
 							<div className='rooms-bathrooms d-flex'>
 								<div className='address'>
 									<h6>123, St name, lorem ipsum.</h6>
-									<h5>Oxford</h5>
+									<h5>{this.props.data.address}</h5>
 								</div>
 							</div>
 						</div>
@@ -131,37 +133,37 @@ class BookingConfirmingMobile extends React.Component {
 						<div className='name-phone d-flex'>
 							<div className='full-name'>
 								<h6>Full Name</h6>
-								<h5>Fulan Al Fulani</h5>
+								<h5>{this.props.data.name}</h5>
 							</div>
 							<div className='phone-number'>
 								<h6>Phone Number</h6>
-								<h5>+1 123 456 789</h5>
+								<h5>{this.props.data.phone_no}</h5>
 							</div>
 						</div>
 
 						<div className='state-city-address d-flex'>
 							<div className='state'>
 								<h6>State</h6>
-								<h5>Ohio</h5>
+								<h5>{this.props.data.state}</h5>
 							</div>
 							<div className='city'>
 								<h6>City</h6>
-								<h5>Oxford</h5>
+								<h5>{this.props.data.city}</h5>
 							</div>
 							<div className='address'>
 								<h6>123, St name, lorem ipsum.</h6>
-								<h5>Oxford</h5>
+								<h5>{this.props.data.address}</h5>
 							</div>
 						</div>
 
 						<div className='rooms-bathrooms d-flex'>
 							<div className='rooms'>
 								<h6>Number of rooms</h6>
-								<h5>3</h5>
+								<h5>{this.props.data.rooms}</h5>
 							</div>
 							<div className='Number of bathrooms'>
 								<h6>Number of bathrooms</h6>
-								<h5>1</h5>
+								<h5>{this.props.data.bathrooms}</h5>
 							</div>
 						</div>
 						<div className='request-edit' style={{marginTop: 30}}>
@@ -204,6 +206,7 @@ class Booking2 extends React.Component {
 
 	render() {
 		const width = this.state.width;
+		const bookedData = this.props.bookedInformation || [];
 		return (
 			<div style={{ maxWidth: '860px', padding: '0 15px' }} className="booking2">
 				<Row style={{ marginBottom: 50, marginTop: 120 }} className='booking2-row'>
@@ -227,11 +230,19 @@ class Booking2 extends React.Component {
 					</Col>
 				</Row>
 				{ width <=	 650 ?  <a href='/Booking1' style={{ color: '#393c40', fontSize: '18px' }}>Back</a>  : <div /> }
-				{ width > 650 ?  <BookingConfirming /> : <BookingConfirmingMobile /> }
-				{ width > 650 ?  <BookingConfirming /> : <BookingConfirmingMobile /> }
+				{
+					bookedData.length > 0 ?
+						bookedData.map(booked => 
+							width > 650 ?  <BookingConfirming data={booked} /> : <BookingConfirmingMobile data={booked} />
+						) : <>No Data</>
+				}
 			</div>
 		)
 	}
 }
 
-export default withRouter(Booking2);
+const mapStateToProps = state => ({
+	bookedInformation: state.booking.bookedInformation
+});
+
+export default withRouter(connect(mapStateToProps, { })(Booking2));

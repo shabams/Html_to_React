@@ -6,7 +6,8 @@ import { Image } from 'react-bootstrap';
 import './schedule.css';
 import backgroundLeft from '../../../Assets/Images/background-left-147-252.png';
 import backgroundRight from '../../../Assets/Images/background-right-133-380.png';
-import { changeDate } from '../../../Actions/Schedule';
+import { selectDate } from '../../../Actions/Schedule';
+import { connect } from 'react-redux';
 
 class Schedule2 extends Component {
 	constructor(props) {
@@ -39,6 +40,8 @@ class Schedule2 extends Component {
 	onDatePicked(res) {
 		const { date, month, year } = res;
 		this.setState({ year: year, month: month, date: date });
+		selectDate(new Date(year, month, date));
+		this.props.history.push('/Schedule3');
 	}
 
 	onResetDate(res) {
@@ -141,7 +144,6 @@ class Schedule2 extends Component {
 							  onResetTime={res => this.onResetTime(res)}
 							  onResetDefaultTime={res => this.onResetDefaultTime(res)}
 							  onClearTime={res => this.onClearTime(res)}
-							  onChange={() => console.log("ssssss")}
 							/>
 						</div>
 					</div>
@@ -151,4 +153,8 @@ class Schedule2 extends Component {
 	}
 }
 
-export default withRouter(Schedule2);
+const mapStateToProps = state => ({
+	s_date: state.schedule.selected_date
+});
+
+export default withRouter(connect(mapStateToProps, { })(Schedule2));
