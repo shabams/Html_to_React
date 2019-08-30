@@ -4,6 +4,7 @@ import { Row, Form, Col, Button, Modal, Image } from 'react-bootstrap';
 import './Booking.css';
 import mail from '../../../Assets/Images/mail1.png';
 import { connect } from 'react-redux';
+import { findBookingInformation } from '../../../Actions/booking';
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -50,13 +51,14 @@ class BookingConfirming extends React.Component {
 	render() {
 		const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ];
 		const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+		console.log(this.props.data);
 		return (
 			<>
 				<div className='booking-confirming d-flex'>
 					<div className='booking-confirming-date d-flex'>
-						<p>{days[new Date(this.props.data.date_booked).getDay()-1] || ''}</p>
-  						<p>{months[new Date(this.props.data.date_booked).getMonth()] || ''} {new Date(this.props.data.date_booked).getDate() || ''}</p>
-  						<p>{this.props.data.time.split(' ')[1] + " " + this.props.data.time.split(' ')[2]}</p>
+						<p>{days[new Date(this.props.data.date).getDay()-1] || ''}</p>
+  						<p>{months[new Date(this.props.data.date).getMonth()] || ''} {new Date(this.props.data.date).getDate() || ''}</p>
+  						<p>{this.props.data.time}</p>
 					</div>
 					<div className=''>
 						<div className='booking-confirming-data d-flex'>
@@ -206,6 +208,16 @@ class Booking2 extends React.Component {
 		this.setState({ width: window.innerWidth, height: window.innerHeight });
 	}
 
+	findBooking = () => {
+		const { findBookingInformation } = this.props;
+		const data = {
+			email: this.email.value,
+			phone_no: this.phone_no.value
+		}
+		findBookingInformation(data);
+		this.props.history.push('/Booking2');
+	}
+
 	render() {
 		const width = this.state.width;
 		const bookedData = this.props.bookedInformation || [];
@@ -216,18 +228,18 @@ class Booking2 extends React.Component {
 					<Col>
 						<Form.Group controlId='formBasicEmailAddress'>
 							<Form.Label>Email Address*</Form.Label>
-							<Form.Control type='email' />
+							<Form.Control type='email' ref={input => this.email = input} defaultValue={this.props.bookedInformation.email || ''} />
 						</Form.Group>
 					</Col>
 
 					<Col>
 						<Form.Group controlId='formBasicPhoneNumber'>
 							<Form.Label>Phone Number*</Form.Label>
-							<Form.Control type='text' />
+							<Form.Control type='text'  ref={input => this.phone_no = input} defaultValue={this.props.bookedInformation.phone_no || ''} />
 						</Form.Group>
 					</Col>
 					<Col style={{ alignSelf: 'flex-end', paddingBottom: '15px' }}>
-						<Button variant="primary" className='find'>
+						<Button variant="primary" className='find' onClick={this.findBooking}>
 					        Find
 					    </Button>
 					</Col>
@@ -249,4 +261,4 @@ const mapStateToProps = state => ({
 	bookedInformation: state.booking.bookedInformation
 });
 
-export default withRouter(connect(mapStateToProps, { })(Booking2));
+export default withRouter(connect(mapStateToProps, { findBookingInformation })(Booking2));

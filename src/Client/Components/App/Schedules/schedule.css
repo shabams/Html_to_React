@@ -270,6 +270,12 @@ button.confirming-button {
 	.step-2 {
 		display: none;
 	}
+
+	/*background eclipse display none*/
+	.schedule-background-left, .schedule-background-right {
+		display: none;
+	} 
+	/*background eclipse*/
 }
 
 @media only screen and (max-width: 850px) {
@@ -294,11 +300,6 @@ button.confirming-button {
 	}
 }
 @media only screen and (max-width: 580px) {
-	/*background eclipse display none*/
-	.schedule-background-left, .schedule-background-right {
-		display: none;
-	} 
-	/*background eclipse*/
 
   	.picky-date-time-calendar__table-cel {
 		border: none;

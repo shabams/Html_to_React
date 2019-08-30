@@ -14,6 +14,7 @@ export default (state = initialState, action) => {
     	};
 
     case SELECTED_TIME:
+      console.log(action.payload);
       return {
         ...state,
         selected_time: action.payload

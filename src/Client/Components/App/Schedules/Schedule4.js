@@ -47,6 +47,7 @@ class Schedule4 extends Component {
 	}
 
 	render() {
+		console.log(this.props.s_time);
 		return (
       		<div className='schedule-page'>
       			<Image src={backgroundLeft} className='schedule-background-left' />

@@ -31,11 +31,11 @@ class Schedule3 extends Component {
 			e.target.classList.add('active');
 			this.setState({time: [...this.state.time, t]})
 		}
-		const { selectTime } = this.props;
-
 	}
 
 	setTime = () => {
+		const { selectTime } = this.props;
+		console.log(this.state.time);
 		selectTime(this.state.time);
 		this.props.history.push('/Schedule4');
 	}

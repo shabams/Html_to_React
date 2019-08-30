@@ -22,6 +22,7 @@ class Schedule5 extends Component {
 		console.log(this.props.addBookingInformation);
 		const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ];
 		const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+		console.log(days[new Date(this.props.addBookingInformation.date).getDay()]);
 		return (
       		<div className='schedule-page'>
       			<Image src={backgroundLeft} className='schedule-background-left' />
