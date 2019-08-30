@@ -5,6 +5,7 @@ import PickyDateTime from 'react-picky-date-time';
 import { Image, Table, Row } from 'react-bootstrap';
 import backgroundLeft from '../../../Assets/Images/background-left-147-252.png';
 import backgroundRight from '../../../Assets/Images/background-right-133-380.png';
+import check from '../../../Assets/Images/checkbox.svg';
 import { connect } from 'react-redux';
 import { selectTime } from '../../../Actions/Schedule';
 import step1 from '../../../Assets/Images/step1.svg';
@@ -16,12 +17,26 @@ class Schedule3 extends Component {
 		super(props);
 
 		this.state = {
+			time: []
 		}
 	}
 
-	handleTime = (t) => {
+	handleTime = (e, t) => {
+		console.log(e.target);
+		if (e.target.classList.contains('active')) {
+			e.target.classList.remove('active');
+			this.setState({time: this.state.time.filter(ti => { return ti != t})});
+		}
+		else {
+			e.target.classList.add('active');
+			this.setState({time: [...this.state.time, t]})
+		}
 		const { selectTime } = this.props;
-		selectTime(t);
+
+	}
+
+	setTime = () => {
+		selectTime(this.state.time);
 		this.props.history.push('/Schedule4');
 	}
 
@@ -31,7 +46,7 @@ class Schedule3 extends Component {
 			<div className='available-time d-flex' >
 				{time.map(t => {
 					return (
-						<div className='each-time d-flex' onClick={() => this.handleTime(t)}><h6>{t}</h6></div>
+						<div className='each-time d-flex' onClick={e => this.handleTime(e, t)}>{t}</div>
 					);
 				})}
 			</div>
@@ -52,11 +67,12 @@ class Schedule3 extends Component {
 		      						Thu, July 29
 		      					</div>
 		      					{availableTime}
+		      					<div style={{ textAlign: 'right', marginTop: '20px'}}><Image src={check} onClick={this.setTime} style={{marginRight:'10px'}}/>Available Time</div>
 		      				</div>
 		      				<div className='step-1'>
 								<div style={{ position: 'absolute' }}>
 									<Image src={step1} />
-									<h6 style={{ color: '#12261f', 'font-weight': 'bold', position: 'absolute', top: 0, left: -45 }}>step1</h6>
+									<h6 style={{ color: '#12261f', 'fontWeight': 'bold', position: 'absolute', top: 0, left: -45 }}>step1</h6>
 									<h6 style={{ color: '#12261f', position: 'absolute', left: -45, bottom: -8 }}>step2</h6>
 								</div>
 							</div>

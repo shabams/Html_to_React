@@ -15,7 +15,7 @@ var BookingsSchema = new mongoose.Schema({
     email: String,
     phone_no: String,
     name: String,
-    time: String,
+    time: Array,
     status: String,
     price: Number,
     archived: Boolean,
