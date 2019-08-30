@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Navbar , Nav, Image } from 'react-bootstrap';
-import logo from '../../../../Assets/Images/logo-footer.png';
+import logo from '../../../../Assets/Images/logo-image.svg';
 import './index.css';
 
 class ScheduleNavBar extends Component {
@@ -8,8 +8,10 @@ class ScheduleNavBar extends Component {
 		return(
 			<>
 				<Navbar expand='lg'>
-          <Navbar.Brand href='/' >
+          <Navbar.Brand href='/' style={{ textAlign: 'left' }}>
             <Image src={logo} alt='Logo' />
+            <h5 style={{ color: '#374354', fontSize: 24, fontWeight: 'bold', letterSpacing: '0.8px'}}>ease</h5>
+            <h6 style={{ color: '#374354', fontSize: 24, letterSpacing: '0.8px'}}>environment</h6>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' style={{border: 'none',}}/>
           <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
