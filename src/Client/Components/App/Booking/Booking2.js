@@ -58,7 +58,7 @@ class BookingConfirming extends React.Component {
 					<div className='booking-confirming-date d-flex'>
 						<p>{days[new Date(this.props.data.date).getDay()-1] || ''}</p>
   						<p>{months[new Date(this.props.data.date).getMonth()] || ''} {new Date(this.props.data.date).getDate() || ''}</p>
-  						<p>{this.props.data.time.join(', ')}</p>
+  						<p>{this.props.data.time}</p>
 					</div>
 					<div className=''>
 						<div className='booking-confirming-data d-flex'>

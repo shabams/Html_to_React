@@ -8,45 +8,38 @@ import backgroundRight from '../../../Assets/Images/background-right-133-380.png
 import check from '../../../Assets/Images/checkbox.svg';
 import { connect } from 'react-redux';
 import { selectTime } from '../../../Actions/Schedule';
+import { getAvailableTimes } from '../../../Actions/Schedule';
 import step1 from '../../../Assets/Images/step1.svg';
+import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 import './schedule.css';
 
 class Schedule3 extends Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			time: []
-		}
 	}
 
 	handleTime = (e, t) => {
 		console.log(e.target);
+		const { selectTime } = this.props
 		if (e.target.classList.contains('active')) {
-			e.target.classList.remove('active');
-			this.setState({time: this.state.time.filter(ti => { return ti != t})});
+			selectTime(t);
+			this.props.history.push('/Schedule4');
 		}
 		else {
-			e.target.classList.add('active');
-			this.setState({time: [...this.state.time, t]})
+			ToastsStore.error('Select Only available time!');
 		}
-	}
-
-	setTime = () => {
-		const { selectTime } = this.props;
-		console.log(this.state.time);
-		selectTime(this.state.time);
-		this.props.history.push('/Schedule4');
 	}
 
 	render() {
 		const time = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM']
 		const availableTime = 
 			<div className='available-time d-flex' >
-				{time.map(t => {
+				{time.map((t, index) => {
 					return (
-						<div className='each-time d-flex' onClick={e => this.handleTime(e, t)}>{t}</div>
+						index > 2 && index < 13 ? <div className='each-time active d-flex' onClick={e => this.handleTime(e, t)}>{t}</div> :
+							<div className='each-time d-flex' onClick={e => this.handleTime(e, t)}>{t}</div>
+
 					);
 				})}
 			</div>
@@ -67,7 +60,7 @@ class Schedule3 extends Component {
 		      						Thu, July 29
 		      					</div>
 		      					{availableTime}
-		      					<div style={{ textAlign: 'right', marginTop: '20px'}}><Image src={check} onClick={this.setTime} style={{marginRight:'10px'}}/>Available Time</div>
+		      					<div style={{ textAlign: 'right', marginTop: '20px'}}><Image src={check} style={{marginRight:'10px'}}/>Available Time</div>
 		      				</div>
 		      				<div className='step-1'>
 								<div style={{ position: 'absolute' }}>
@@ -79,6 +72,7 @@ class Schedule3 extends Component {
 						</div>
 	      			</div>
       			</div>
+      			<ToastsContainer store={ToastsStore}/>
       		</div>
 		)
 	}

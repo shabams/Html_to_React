@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
 import { Row, Col, Image, Container } from 'react-bootstrap';
-import easyprocess from '../../../Assets/Images/easyprocess.png';
-import friendlystaff from '../../../Assets/Images/friendlystaff.png';
-import price from '../../../Assets/Images/price.png';
-import qualitycleaning from '../../../Assets/Images/qualitycleaning.png';
-import paper from '../../../Assets/Images/paper.png';
-import water from '../../../Assets/Images/water.png';
+import easyprocess from '../../../Assets/Images/easyprocess.svg';
+import friendlystaff from '../../../Assets/Images/friendlystaff.svg';
+import price from '../../../Assets/Images/price.svg';
+import qualitycleaning from '../../../Assets/Images/qualitycleaning.svg';
+import paper from '../../../Assets/Images/paper.svg';
+import water from '../../../Assets/Images/water.svg';
 import aboutus from '../../../Assets/Images/aboutus.png';
 import './Main.css';
 

@@ -42,7 +42,8 @@ class Schedule2 extends Component {
 		const { date, month, year } = res;
 		const {selectDate} = this.props;
 		this.setState({ year: year, month: month, date: date });
-		selectDate(new Date(year, month, date));
+		selectDate(new Date(year, month-1, date));
+		console.log(new Date(year, month-1, date));
 		this.props.history.push('/Schedule3');
 	}
 

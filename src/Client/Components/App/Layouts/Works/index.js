@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import './index.css';
-import confirm from '../../../../Assets/Images/confirm.png';
-import schedule from '../../../../Assets/Images/schedule.png';
-import voila from '../../../../Assets/Images/voila.png';
+import confirm from '../../../../Assets/Images/confirm.svg';
+import schedule from '../../../../Assets/Images/schedule.svg';
+import voila from '../../../../Assets/Images/voila.svg';
 
 class Works extends Component {
 	render() {

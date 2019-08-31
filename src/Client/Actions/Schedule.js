@@ -20,3 +20,8 @@ export const selectTime = (selected_time) => async dispatch => {
 		payload: selected_time
 	});
 }
+
+export const getAvailableTimes = () => async dispatch => {
+	const Url = "http://127.0.0.1:8000/getcleanercalendar";
+	const respond = await axios.post(Url);
+}

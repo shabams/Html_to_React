@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Row, Col, Image, Form, Button, Container } from 'react-bootstrap';
 import './Contact.css';
 import contactform from '../../../Assets/Images/contactform.png';
-import mail from '../../../Assets/Images/mail.png';
-import phone from '../../../Assets/Images/phone.png';
-import location from '../../../Assets/Images/location.png';
+import mail from '../../../Assets/Images/mail.svg';
+import phone from '../../../Assets/Images/phone.svg';
+import location from '../../../Assets/Images/location.svg';
 
 class Contact extends Component {
 	render() {

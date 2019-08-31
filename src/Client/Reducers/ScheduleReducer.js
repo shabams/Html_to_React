@@ -2,7 +2,7 @@ import { SELECTED_DATE, SELECTED_TIME } from '../Actions/Type';
 
 const initialState = {
 	selected_date: new Date(),
-  selected_time: []
+  selected_time: '8 AM'
 };
 
 export default (state = initialState, action) => {

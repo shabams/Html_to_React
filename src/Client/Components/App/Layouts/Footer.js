@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Image, Container } from 'react-bootstrap';
 import './Footer.css';
-import footerlogo from '../../../Assets/Images/logo-footer.png';
-import facebook from '../../../Assets/Images/facebook.png';
-import twitter from '../../../Assets/Images/twitter.png';
-import instagram from '../../../Assets/Images/instagram.png';
+import footerlogo from '../../../Assets/Images/logo-image.svg';
+import facebook from '../../../Assets/Images/facebook.svg';
+import twitter from '../../../Assets/Images/twitter.svg';
+import instagram from '../../../Assets/Images/instagram.svg';
 
 class Footer extends Component {
 	render() {
@@ -12,7 +12,11 @@ class Footer extends Component {
 			<Container fluid className='footer'>
 				<div className='pre-footer d-flex'>
 					<div className='footer-logo'>
-						<a href='#home'><Image src={footerlogo} style={{ width: 150, height: 89 }} /> </a>
+						<a href='#home'>
+							<Image src={footerlogo} alt='Logo' />
+				            <h5 style={{ color: '#374354', fontSize: 24, fontWeight: 'bold', letterSpacing: '0.8px'}}>ease</h5>
+				            <h6 style={{ color: '#374354', fontSize: 24, letterSpacing: '0.8px'}}>environment</h6>
+						</a>
 					</div>
 					<div className='footer-quick-access'>
 						<h4>Quick Access</h4>

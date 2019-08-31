@@ -38,7 +38,7 @@ class Schedule5 extends Component {
 	      					<div className='confirming-date d-flex'>
 	      						<p>{days[new Date(this.props.addBookingInformation.date).getDay()-1] || ''}</p>
 	      						<p>{months[new Date(this.props.addBookingInformation.date).getMonth()] || ''} {new Date(this.props.addBookingInformation.date).getDate() || ''}</p>
-	      						<p>{this.props.addBookingInformation.time.join(', ')}</p>
+	      						<p>{this.props.addBookingInformation.time}</p>
 							</div>
 							<div className='confirming-data'>
 								<div className='name-phone d-flex'>
