@@ -200,6 +200,7 @@ router.use("/changepassword", (req, res) =>{
 
 //Handle register requests for new Cleaner account
 router.use("/register", (req, res) =>{
+  console.log("-===================", req.body);
   var new_user = new User({
     type: "user",
     first_name: req.body.first_name,

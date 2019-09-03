@@ -9,6 +9,10 @@ import Schedule4 from './Client/Components/App/Schedules/Schedule4';
 import Schedule5 from './Client/Components/App/Schedules/Schedule5';
 import Schedule6 from './Client/Components/App/Schedules/Schedule6';
 
+import Admin from './Client/Components/App/Admin';
+import Cleaner from './Client/Components/App/Cleaner';
+import Login from './Client/Components/Landing/Login';
+
 import Booking1 from './Client/Components/App/Booking/Booking1';
 import Booking2 from './Client/Components/App/Booking/Booking2';
 import Booking3 from './Client/Components/App/Booking/Booking3';
@@ -30,6 +34,9 @@ class App extends Component {
           <Route exact path="/Schedule4" component={Schedule4} />
           <Route exact path="/Schedule5" component={Schedule5} />
           <Route exact path="/Schedule6" component={Schedule6} />
+          <Route exact path="/Admin/panel" component={Admin} />
+          <Route exact path="/Cleaner/panel" component={Cleaner} />
+          <Route exact path="/Admin" component={Login} />
           <Switch>
             <PrivateRoute exact path='/Booking1' component={Booking1} />
           </Switch>

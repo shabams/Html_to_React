@@ -1,0 +1,198 @@
+
+.anchor{
+    display: block;
+    height: 115px;
+    margin-top: -115px; 
+    visibility: hidden;
+  }
+
+  html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+
+.margin-top{
+    margin-top: 15vw;
+    margin-bottom: 2vw;
+    margin-left: 1vw;
+}
+
+.welcome-text{
+    margin-top:8vw;
+    color: #455a64 !important;
+    background-image: url('/img/particles-bg.png');
+    position: relative;
+    padding: 3vw;
+    width: 39.8%;
+    height: 40vw;
+}
+
+.font-title{
+    font-size: 3vw;
+}
+
+.font-p{            
+    font-size: 1vw;
+    color: #455a64 !important;
+}
+
+.card{
+    width:50%;
+    font-size: 2vw;
+    background-image: url('/img/stripes.png');
+    margin-top:2vw;
+}
+
+.about-icon{
+    font-size: 10vw;
+    margin-top: 3vw;
+    color: #455a64 !important;
+}
+
+.nav-link:hover{
+    color:#90a4ae !important;
+}
+
+.logo{
+    width: 5vw;
+    height: auto;
+}
+
+.company-name{
+    font-size: 2.5vw;
+    color: #455a64 !important;
+}
+
+.main-picture{
+    margin-top: 8vw;
+    width: 100% !important;
+    height: 40vw;
+}
+
+.search-input{
+    width: 10vw;
+    height: 3vw;
+    border: solid;
+    border-color: gray;
+    border-width: 2px;
+}
+
+.search-button{
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    width: 20vw;
+    height: 3vw;
+}
+
+.font-medium{
+    font-size:2vw;
+}
+
+
+.form-bg{
+    background-image: url('/img/bathroom.jpg');
+    background-size: 100% 100%;
+}
+
+.text-field{
+    border: solid;
+    border-color: gray;
+    border-width: 3px;
+    width: 20vw;
+    height: 15vw;;
+}
+
+
+
+
+@media screen and (max-width:900px){
+    .one{
+        order: 1;
+    }
+    .second{
+        order: 2;
+    }
+    .main-picture{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width:900px){
+    .text-field{
+        border: solid;
+        border-color: gray;
+        border-width: 3px;
+        width: 70vw;
+        height: 40vw;;
+    }
+    .nav-link{
+        color: #455a64 !important;
+        font-size: 5vw;
+        font-weight: 500;
+    }
+    .company-name{
+        font-size: 5vw;
+    }
+    .logo{
+        width: 15vw;
+        height: auto;
+    }
+    .welcome-text{
+        margin-top:17vw;
+        padding: 3vw;
+        width: 100%;
+        height: 60vw;
+    }
+    .font-title{
+        font-size: 8vw;
+        margin-left: 5vw;
+        margin-top: 2vw;    
+    }
+    .font-medium{
+        font-size: 6vw;
+        margin-left:12vw !important;
+    }
+    .percentage-img{
+        width: 40vw;
+        margin-left:30vw !important;
+    }
+    .main-picture{
+        width: 110vw;
+        height: 60vw;
+    }
+
+    .about-icon{
+        font-size: 20vw;
+    }
+    .card{
+        width:85%;
+        font-size: 4vw;
+    }
+
+    .search-input{
+        width: 50vw;
+        height: 12vw;
+    }
+
+    .margin-top{
+        margin-top: 25vw;
+    }
+    
+    
+    .search-button{
+        width: 50vw;
+        height: 18vw;
+    }
+
+    #form{
+        background: url('/img/bathroom.jpg');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    
+}

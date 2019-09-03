@@ -6,6 +6,8 @@
 	flex-direction: column;
 	text-align: center;
 	background-size: 1920px 100%;
+	margin: 0 auto;
+	max-width: 1920px;
 	margin-top: 240px;
 }
 

@@ -3,6 +3,8 @@
 	background-size: 1920px 100%;
 	background-repeat: no-repeat;
 	min-height: 2004px;
+	margin: 0 auto;
+	max-width: 1920px;
 }
 
 .page-header {
