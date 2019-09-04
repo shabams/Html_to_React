@@ -12,6 +12,7 @@ import Schedule6 from './Client/Components/App/Schedules/Schedule6';
 import Admin from './Client/Components/App/Admin';
 import Cleaner from './Client/Components/App/Cleaner';
 import Login from './Client/Components/Landing/Login';
+import CleanerLogin from './Client/Components/Landing/Login/cleanerLogin';
 
 import Booking1 from './Client/Components/App/Booking/Booking1';
 import Booking2 from './Client/Components/App/Booking/Booking2';
@@ -37,6 +38,7 @@ class App extends Component {
           <Route exact path="/Admin/panel" component={Admin} />
           <Route exact path="/Cleaner/panel" component={Cleaner} />
           <Route exact path="/Admin" component={Login} />
+          <Route exact path="/Cleaner" component={CleanerLogin} />
           <Switch>
             <PrivateRoute exact path='/Booking1' component={Booking1} />
           </Switch>

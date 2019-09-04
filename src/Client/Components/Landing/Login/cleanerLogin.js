@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Image } from 'react-bootstrap';
 import logo from './logo.png';
 import './index.css';
-import { login } from '../../../Actions/Admin';
+import { login } from '../../../Actions/Cleaner';
 import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 class Login extends Component {
@@ -28,14 +28,14 @@ class Login extends Component {
 	}
 
 	componentDidMount = () => {
-		if(localStorage.getItem('token')) {
-			this.props.history.push('/admin/panel');
+		if(localStorage.getItem('token') && localStorage.getItem('user')) {
+			this.props.history.push('/cleaner/panel');
 		}
 	}
 
 	render() {
 		return (
-			<div className='logo-back'>
+			<div className="login-back">
 				<div className="login-page">
 			        <div className="form">
 		                <h1 className="company-name">Company Name</h1>

@@ -1,4 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+body {
+/*  background: #b3e5fc;
+  background: -webkit-linear-gradient(right, #b3e5fc, #03a9f4);
+  background: -moz-linear-gradient(right, #b3e5fc, #03a9f4);
+  background: -o-linear-gradient(right, #b3e5fc, #03a9f4);
+  background: linear-gradient(to left, #b3e5fc, #03a9f4);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-size: 100% 100%;*/
+}
 
 .login-page {
   width: 90vw;
@@ -51,17 +62,6 @@
 }
 .form button:hover,.form button:active,.form button:focus {
   background: #01579b;
-}
-
-body {
-  background: #b3e5fc; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #b3e5fc, #03a9f4);
-  background: -moz-linear-gradient(right, #b3e5fc, #03a9f4);
-  background: -o-linear-gradient(right, #b3e5fc, #03a9f4);
-  background: linear-gradient(to left, #b3e5fc, #03a9f4);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
 }
 
 .logo{
