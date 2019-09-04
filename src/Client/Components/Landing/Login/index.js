@@ -35,7 +35,7 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div className='logo-back'>
+			<div className='login-back'>
 				<div className="login-page">
 			        <div className="form">
 		                <h1 className="company-name">Company Name</h1>

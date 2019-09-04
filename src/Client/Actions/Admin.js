@@ -115,55 +115,108 @@ export const suspendAccount = (data) => async dispatch => {
 	});
 }
 
-export const manageCalendar = (data) => async dispatch => {
+function clickevent() {
+	console.log('clickevent');
+}
+
+export const manageCalendar = (id, data, option) => async dispatch => {
+	if(document.getElementById(`schedule${id}`).className == "row text-white" && option==1){
+    	document.getElementById(`schedule${id}`).className = "row d-none text-white"
+	}
+	else{
+	    document.getElementById(`schedule${id}`).className = "row text-white";
+	    document.getElementById(`spin${id}`).classList.add("lds-spinner");
+		const Url = "http://127.0.0.1:8000/cleaner/getcleanercalendar";
+		await axios.post(Url, data).then(function (response) {
+			document.getElementById(`cleaner-calendar${id}`).innerHTML = "";
+			if (response.data.length > 0) {
+				for (let i = 0; i < response.data.length; i++) {
+					let div = document.createElement('div');
+			        div.className = "border-bottom-primary p-4 card";
+			        div.id = `calendar_${id}`;
+			        div.style.borderRadius = '10px';
+			        div.style.marginBottom = '1vw';
+			        div.style.wordBreak = 'break-all';
+					div.innerHTML = 
+	                    `<h5 class="text-primary" style={{display:'inline', marginRight: '2vw'}}><span class="text-secondary">Date:</span> ${response.data[i].date}</h5><br />
+	                    <h5 class="text-primary" style={{display:'inline', marginRight: '2vw'}}><span class="text-secondary">From:</span> ${response.data[i].from}</h5><br />
+	                    <h5 class="text-primary" style={{display:'inline', marginRight: '2vw'}}><span class="text-secondary">To:</span> ${response.data[i].to}</h5><br />`
+	    			let button = document.createElement('button');
+	    			button.id='${response.data[i]._id}';
+	    			button.className='btn btn-danger';
+	    			button.style.display = 'inline';
+	    			button.onclick = function() {
+	    				removeCalendarDate(id, response.data[i]._id, data.user, dispatch);
+	    			};
+	    			button.innerHTML = 'Remove Date'
+	    			div.appendChild(button);
+	                document.getElementById(`cleaner-calendar${id}`).appendChild(div);
+	          		document.getElementById(`spin` + id).className = "d-none lds-spinner";
+				}
+			} else {
+				document.getElementById(`spin${id}`).className = "d-none lds-spinner";
+	        	ToastsStore.error('No schedule dates found!');
+			}
+			dispatch({
+				type: MANAGE_CALENDAR,
+				payload: response.data
+			})
+	    })
+	    .catch(error => {
+	      	ToastsStore.error('Server ****************unreachable!');
+	    });
+	}
+}
+
+export const manageCalendar1 = (id, data, option, dispatch) => {
+
 	const Url = "http://127.0.0.1:8000/cleaner/getcleanercalendar";
-	await axios.post(Url, data).then(function (response) {
-		dispatch({
-			type: MANAGE_CALENDAR,
-			payload: response.data
-		})
+	axios.post(Url, data).then(function (response) {
+		console.log("=================");
+		document.getElementById(`cleaner-calendar${id}`).innerHTML = "";
+		if (response.data.length > 0) {
+			for (let i = 0; i < response.data.length; i++) {
+				let div = document.createElement('div');
+		        div.className = "border-bottom-primary p-4 card";
+		        div.id = `calendar_${id}`;
+		        div.style.borderRadius = '10px';
+		        div.style.marginBottom = '1vw';
+		        div.style.wordBreak = 'break-all';
+				div.innerHTML = 
+                    `<h5 class="text-primary" style={{display:'inline', marginRight: '2vw'}}><span class="text-secondary">Date:</span> ${response.data[i].date}</h5><br />
+                    <h5 class="text-primary" style={{display:'inline', marginRight: '2vw'}}><span class="text-secondary">From:</span> ${response.data[i].from}</h5><br />
+                    <h5 class="text-primary" style={{display:'inline', marginRight: '2vw'}}><span class="text-secondary">To:</span> ${response.data[i].to}</h5><br />`
+    			let button = document.createElement('button');
+    			button.id='${response.data[i]._id}';
+    			button.className='btn btn-danger';
+    			button.style.display = 'inline';
+    			button.onclick = function() {
+    				removeCalendarDate(id, response.data[i]._id, data.user, dispatch);
+    			};
+    			button.innerHTML = 'Remove Date'
+    			div.appendChild(button);
+                document.getElementById(`cleaner-calendar${id}`).appendChild(div);
+          		document.getElementById(`spin` + id).className = "d-none lds-spinner";
+			}
+		} else {
+			document.getElementById(`spin${id}`).className = "d-none lds-spinner";
+        	ToastsStore.error('No schedule dates found!');
+		}
     })
     .catch(error => {
-      	ToastsStore.error('Server unreachable!');
+      	ToastsStore.error('Server ****************unreachable!');
     });
 }
 
-export const removeCalendarDate = (id, username) => async dispatch => {
-	var number = id.substring(0,1);
-	var id_finite = id.substring(1,id.length);
+export const removeCalendarDate = (index, id, username, dispatch) => {
 	const Url = "http://127.0.0.1:8000/cleaner/removedate";
 	const requestBody = {
-		id: id_finite,
+		id: id,
 		username: username
 	};
 
-	await axios.post(Url, requestBody).then(function (response) {
-		var option = 0;
-		if(document.getElementById(`schedule` + number).classList.contains("row") &&
-            document.getElementById(`schedule` + number).classList.contains("text-white") && option==1){
-            console.log("ssdfsdfsdfsdfsdf");
-            document.getElementById(`schedule` + number).classList.add("d-none");
-        }
-        else {
-            document.getElementById(`schedule` + number).classList.add("row");
-            document.getElementById(`schedule` + number).classList.add("text-white");
-            document.getElementById(`spin` + number).classList.add("lds-spinner");
-
-            const data = {
-                user: this.props.cleaners[number].username
-            };
-
-            const Url = "http://127.0.0.1:8000/cleaner/getcleanercalendar";
-			axios.post(Url, data).then(function (response) {
-				dispatch({
-					type: MANAGE_CALENDAR,
-					payload: response.data
-				})
-		    })
-		    .catch(error => {
-		      	ToastsStore.error('Server unreachable!');
-		    });
-        }
+	axios.post(Url, requestBody).then(function (response) {
+		manageCalendar1(index, {user: username}, 0, dispatch);
 	})
 	.catch(error => {
 		ToastsStore.error('Server unreachable!');
@@ -202,5 +255,27 @@ export const login = (data, props) => async dispatch => {
     })
     .catch(error => {
         ToastsStore.error('Wrong username and/or password.')
+    });
+}
+
+export const addScheduleDate = (i, data) => async dispatch => {
+	const Url = "http://127.0.0.1:8000/cleaner/addschedule";
+    await axios.post(Url, data).then(function (response) {
+	    ToastsStore.success('Date added to schedule!');
+	    manageCalendar1(i, {user: data.user}, 0, dispatch);
+    })
+    .catch(error => {
+    	ToastsStore.error('Server unreachable!')
+    });
+}
+
+export const addScheduleRepeat = (i, data) => async dispatch => {
+	const Url = "http://127.0.0.1:8000/cleaner/addschedule";
+    await axios.post(Url, data).then(function (response) {
+	    ToastsStore.success('Date added to schedule!');
+	    manageCalendar1(i, {user: data.user}, 0, dispatch);
+    })
+    .catch(error => {
+    	ToastsStore.error('Server ===============unreachable!')
     });
 }

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import './index.css';
 import {ToastsContainer, ToastsStore} from 'react-toasts';
 import swal from 'sweetalert';
-import { removeCalendarDate, manageCalendar, getUsers, register, setRoomRate, getRates, setBathRoomRate, changePassword, suspendAccount, changeStatus, archiveBooking } from '../../../Actions/Admin';
+import { addScheduleRepeat, addScheduleDate, removeCalendarDate, manageCalendar, getUsers, register, setRoomRate, getRates, setBathRoomRate, changePassword, suspendAccount, changeStatus, archiveBooking } from '../../../Actions/Admin';
 
 class Admin extends React.Component {
     constructor(props) {
@@ -13,7 +13,17 @@ class Admin extends React.Component {
 
         this.state = {
             check: 1,
-            m_c: false
+            m_c: false,
+            from_time: [],
+            to_time: [],
+            from_option: [],
+            to_option:[],
+            datepicker: [],
+            from_time_repeat: [],
+            to_time_repeat: [],
+            from_option_repeat: [],
+            to_option_repeat:[],
+            day: [],
         }
     }
 
@@ -31,55 +41,123 @@ class Admin extends React.Component {
     }
 
     manageCalendar = (id, option) => {
+        console.log("================================================================");
         const { manageCalendar } = this.props;
-        if(document.getElementById(`schedule` + id).classList.contains("row") &&
-            document.getElementById(`schedule` + id).classList.contains("text-white") && option==1){
-            console.log("ssdfsdfsdfsdfsdf");
-            document.getElementById(`schedule` + id).classList.add("d-none");
-            this.setState({m_c: false});
-        }
-        else {
-            document.getElementById(`schedule` + id).classList.add("row");
-            document.getElementById(`schedule` + id).classList.add("text-white");
-            document.getElementById(`spin` + id).classList.add("lds-spinner");
 
+        const data = {
+            user: this.props.cleaners[id].username
+        };
+
+        manageCalendar(id, data, option);
+    }
+
+    removeCalendarDate = (index, id, username) => {
+        const { removeCalendarDate } = this.props;
+        // removeCalendarDate(id, username);
+        console.log("sssssssss");
+    }
+
+    addScheduleDate = (i, username) => {
+        let from_time = this.state.from_time[i];
+        let to_time = this.state.to_time[i];
+        from_time += this.state.from_option[i];
+        to_time += this.state.to_option[i];
+        if (this.state.datepicker[i].length < 1) {
+            ToastsStore.error('Wrong time selected, check again.');
+        } else {
             const data = {
-                user: this.props.cleaners[id].username
-            };
-            this.setState({m_c: true});
-
-            manageCalendar(data);
+                date: this.state.datepicker[i],
+                from: from_time,
+                to: to_time,
+                user: username
+            }
+            console.log(data);
+            const { addScheduleDate } = this.props;
+            addScheduleDate(i, data);
         }
     }
 
-    removeCalendarDate = (id) => {
-        const { removeCalendarDate } = this.props;
-        removeCalendarDate(id);
+    addScheduleRepeat = (i, username) => {
+        let from_time_repeat = this.state.from_time_repeat[i];
+        let to_time_repeat = this.state.to_time_repeat[i];
+        from_time_repeat += this.state.from_option_repeat[i];
+        to_time_repeat += this.state.to_option_repeat[i];
+        if (this.state.day[i].length < 1) {
+            ToastsStore.error('Wrong time selected, check again.');
+        } else {
+            const data = {
+                date: this.state.day[i],
+                from: from_time_repeat,
+                to: to_time_repeat,
+                user: username
+            }
+            console.log(data);
+            const { addScheduleRepeat } = this.props;
+            addScheduleRepeat(i, data);
+        }
+    }
+
+    handleFromTime = (id, e) => {
+        this.setState({
+          from_time: { ...this.state.from_time, [id]: e.target.value }
+        });
+    }
+
+    handleToTime = (id, e) => {
+        this.setState({
+          to_time: { ...this.state.to_time, [id]: e.target.value }
+        });
+    }
+
+    handleFromOption = (id, e) => {
+        this.setState({
+          from_option: { ...this.state.from_option, [id]: e.target.value }
+        });
+    }
+
+    handleToOption = (id, e) => {
+        this.setState({
+          to_option: { ...this.state.to_option, [id]: e.target.value }
+        });
+    }
+
+    handleDatePicker = (id, e) => {
+        this.setState({
+          datepicker: { ...this.state.datepicker, [id]: e.target.value }
+        });
+    }
+
+    handleFromTimeRepeat = (id, e) => {
+        this.setState({
+          from_time_repeat: { ...this.state.from_time_repeat, [id]: e.target.value }
+        });
+    }
+
+    handleToTimeRepeat = (id, e) => {
+        this.setState({
+          to_time_repeat: { ...this.state.to_time_repeat, [id]: e.target.value }
+        });
+    }
+
+    handleFromOptionRepeat = (id, e) => {
+        this.setState({
+          from_option_repeat: { ...this.state.from_option_repeat, [id]: e.target.value }
+        });
+    }
+
+    handleToOptionRepeat = (id, e) => {
+        this.setState({
+          to_option_repeat: { ...this.state.to_option_repeat, [id]: e.target.value }
+        });
+    }
+
+    handleDay = (id, e) => {
+        this.setState({
+          day: { ...this.state.day, [id]: e.target.value }
+        });
     }
 
     _getUsers = (user, i) => {
-        let manage_calendar = '';
-        if (this.state.m_c === true) {
-            document.getElementById(`spin` + i).classList.add("d-none");
-            document.getElementById(`spin` + i).classList.add("lds-spinner");
-            if (this.props.manage_calendar.length === 0) {
-                ToastsStore.error('No schedule dates found!');
-            } 
-            else {
-                manage_calendar = this.props.manage_calendar.map((m_c, id) => {
-                    let color = 'text-primary';
-                    return (
-                        <div className="border-bottom-primary p-4 card" id={'calendar_' + id} style={{ bordeRadius: '10px', marginBottom: '1vw', wordBreak: 'break-all' }}>
-                            <h5 className="text-primary" style={{display:'inline', marginRight: '2vw'}}><span className="text-secondary">Date:</span> {m_c.date}</h5><br />
-                            <h5 className="text-primary" style={{display:'inline', marginRight: '2vw'}}><span className="text-secondary">From:</span> {m_c.from}</h5><br />
-                            <h5 className="text-primary" style={{display:'inline', marginRight: '2vw'}}><span className="text-secondary">To:</span> {m_c.to}</h5><br />
-                            <button id={m_c._id} onClick={() => this.removeCalendarDate(m_c._id)} className="btn btn-danger" style={{display:'inline'}}><b>Remove Date</b></button><br /><br />
-                        </div>
-                    )
-                });
-            }
-        }
-
         return (
             <div className='p-2 mb-3 shadow border-left-primary' style={{ borderRadius: 10 }} id={i}>
                 <h4 className="text-info" style={{ display:'inline', marginRight: '2vw' }}>
@@ -109,15 +187,15 @@ class Admin extends React.Component {
                         <div></div>
                     </div>
                     <div id={"cleaner-calendar" + i} className="col-md-4 mt-5">
-                        {manage_calendar}
+
                     </div>
                     <div className="col-md-7">
                         <h3 className="text-primary mt-2">Add new date to schedule</h3>
                         <h2 className="text-info">Choose available date:</h2>
-                        <input type="date" id="datePicker${i}" style={{ width:"10vw", marginBottom: "1.5vw" }} />
+                        <input type="date" id="datePicker${i}" style={{ width:"10vw", marginBottom: "1.5vw" }} onChange={e => this.handleDatePicker(i, e)}/>
                         <h2 className="text-info">Choose available time:</h2>
                         <h4 className="text-info">From</h4>
-                        <select id={'from-time' + i}>
+                        <select id={'from-time' + i} onChange={e => this.handleFromTime(i, e)}>
                             <option value='01:00'>01:00</option>
                             <option value='01:30'>01:30</option>
                             <option value='02:00'>02:00</option>
@@ -143,12 +221,12 @@ class Admin extends React.Component {
                             <option value='12:00'>12:00</option>
                             <option value='12:30'>12:30</option>
                         </select>
-                        <select name="am-pm" id={'from-option' + i}>
+                        <select name="am-pm" id={'from-option' + i} onChange={e => this.handleFromOption(i, e)}>
                                 <option value='AM'>AM</option>
                                 <option value='PM'>PM</option>                    
                         </select>
                         <h4 className="text-info mt-3">To</h4>
-                        <select id={'to-time' + i}>
+                        <select id={'to-time' + i} onChange={e => this.handleToTime(i, e)}>
                             <option value='01:00'>01:00</option>
                             <option value='01:30'>01:30</option>
                             <option value='02:00'>02:00</option>
@@ -174,10 +252,88 @@ class Admin extends React.Component {
                             <option value='12:00'>12:00</option>
                             <option value='12:30'>12:30</option>
                         </select>
-                        <select name="am-pm" id={'to-option' + i}>
+                        <select name="am-pm" id={'to-option' + i} onChange={e => this.handleToOption(i, e)}>
                             <option value='AM'>AM</option>
                             <option value='PM'>PM</option>                    
                         </select>
+                        <br />
+                        <button onClick={() => this.addScheduleDate(i, user.username)} className="btn btn-success mb-3 mt-3">Add Now</button>
+                        <h3 className="text-primary">Add new repeating schedule date</h3>
+                        <h2 className="text-info">Choose available day:</h2>
+                        <select id={"day" + i} name="day" multiple onChange={e => this.handleDay(i, e)}>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                        <h2 className="text-info">Choose available time:</h2>
+                        <h4 className="text-info">From</h4>
+                        <select id={'from-time-repeat' + i} onChange={e => this.handleFromTimeRepeat(i, e)}>
+                            <option value='01:00'>01:00</option>
+                            <option value='01:30'>01:30</option>
+                            <option value='02:00'>02:00</option>
+                            <option value='02:30'>02:30</option>
+                            <option value='03:00'>03:00</option>
+                            <option value='03:30'>03:30</option>
+                            <option value='04:00'>04:00</option>
+                            <option value='04:30'>04:30</option>
+                            <option value='05:00'>05:00</option>
+                            <option value='05:30'>05:30</option>
+                            <option value='06:00'>06:00</option>
+                            <option value='06:30'>06:30</option>
+                            <option value='07:00'>07:00</option>
+                            <option value='07:30'>07:30</option>
+                            <option value='08:00'>08:00</option>
+                            <option value='08:30'>08:30</option>
+                            <option value='09:00'>09:00</option>
+                            <option value='09:30'>09:30</option>
+                            <option value='10:00'>10:00</option>
+                            <option value='10:30'>10:30</option>
+                            <option value='11:00'>11:00</option>
+                            <option value='11:30'>11:30</option>
+                            <option value='12:00'>12:00</option>
+                            <option value='12:30'>12:30</option>
+                        </select>
+                        <select name="am-pm" id={'from-repeat-option' + i} onChange={e => this.handleFromOptionRepeat(i, e)}>
+                            <option value='AM'>AM</option>
+                            <option value='PM'>PM</option>                    
+                        </select>
+                        <h4 className="mt-3 text-info">To</h4>
+                        <select id={'to-time-repeat' + i} onChange={e => this.handleToTimeRepeat(i, e)}>
+                            <option value='01:00'>01:00</option>
+                            <option value='01:30'>01:30</option>
+                            <option value='02:00'>02:00</option>
+                            <option value='02:30'>02:30</option>
+                            <option value='03:00'>03:00</option>
+                            <option value='03:30'>03:30</option>
+                            <option value='04:00'>04:00</option>
+                            <option value='04:30'>04:30</option>
+                            <option value='05:00'>05:00</option>
+                            <option value='05:30'>05:30</option>
+                            <option value='06:00'>06:00</option>
+                            <option value='06:30'>06:30</option>
+                            <option value='07:00'>07:00</option>
+                            <option value='07:30'>07:30</option>
+                            <option value='08:00'>08:00</option>
+                            <option value='08:30'>08:30</option>
+                            <option value='09:00'>09:00</option>
+                            <option value='09:30'>09:30</option>
+                            <option value='10:00'>10:00</option>
+                            <option value='10:30'>10:30</option>
+                            <option value='11:00'>11:00</option>
+                            <option value='11:30'>11:30</option>
+                            <option value='12:00'>12:00</option>
+                            <option value='12:30'>12:30</option>
+                        </select>
+                        <select name="am-pm" id={'to-repeat-option' + i} onChange={e => this.handleToOptionRepeat(i, e)}>
+                            <option value='AM'>AM</option>
+                            <option value='PM'>PM</option>                    
+                        </select>
+                        <br />
+                        <button onClick={() => this.addScheduleRepeat(i, user.username)} className="btn btn-success mb-3">Add Now</button>
                     </div>
                 </div>
             </div>
@@ -344,8 +500,7 @@ class Admin extends React.Component {
     }
 
     render() {
-        console.log("=============", this.props.manage_calendar);
-
+        console.log(this.props.manage_calendar);
         const cleaners = this.props.cleaners.map((cleaner, index) => {
             return this._getUsers(cleaner, index);
         });
@@ -520,4 +675,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getRates, changeStatus, suspendAccount, getUsers, register, setRoomRate, setBathRoomRate, changePassword, manageCalendar, archiveBooking, removeCalendarDate })(Admin));
+export default withRouter(connect(mapStateToProps, { addScheduleRepeat, getRates, changeStatus, suspendAccount, getUsers, register, setRoomRate, setBathRoomRate, changePassword, manageCalendar, archiveBooking, removeCalendarDate, addScheduleDate })(Admin));
