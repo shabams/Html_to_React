@@ -1,7 +1,7 @@
-import { GET_ESTIMATION } from '../Actions/Type';
+import { GET_ESTIMATION, AVAILABLE_TIME } from '../Actions/Type';
 
 const initialState = {
-	get_estimation_price: 0
+	available: []
 };
 
 export default (state = initialState, action) => {
@@ -11,6 +11,11 @@ export default (state = initialState, action) => {
     		...state,
     		get_estimation_price: action.payload
     	};
+   	case AVAILABLE_TIME:
+   		return {
+   			...state,
+   			available: action.payload
+   		}
     default:
       return state;
   }

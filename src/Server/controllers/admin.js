@@ -55,6 +55,20 @@ router.post('/roomrate', (req,res)=>{
   })
 })
 
+//Changing currect time from admin panel for room
+router.post('/roomtime', (req,res)=>{
+  Estimates.findOneAndUpdate({type:'regular'},{roomtime : req.body.room_time}).then(()=>{
+    res.status(200).send();
+  })
+})
+
+//Changing currect rates from admin panel for bathroom
+router.post('/bathroomtime', (req,res)=>{
+  Estimates.findOneAndUpdate({type:'regular'},{bathroomtime : req.body.bathroom_time}).then(()=>{
+    res.status(200).send();
+  })
+});
+
 //Changind STATUS of booking from admin panel
 router.post('/changestatus', (req,res)=>{
   Bookings.findByIdAndUpdate(req.body.id, {status:req.body.status}).then((data)=>{

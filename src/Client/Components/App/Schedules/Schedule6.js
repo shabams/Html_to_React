@@ -5,7 +5,7 @@ import PickyDateTime from 'react-picky-date-time';
 import { Image, Table, Row, Col, Form, Button } from 'react-bootstrap';
 import backgroundLeft from '../../../Assets/Images/background-left-147-252.png';
 import backgroundRight from '../../../Assets/Images/background-right-133-380.png';
-import sun from '../../../Assets/Images/sun.png';
+import sun from '../../../Assets/Images/sun.svg';
 import { connect } from 'react-redux';
 
 import './schedule.css';

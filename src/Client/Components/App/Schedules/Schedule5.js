@@ -62,7 +62,7 @@ class Schedule5 extends Component {
 										<h5>{this.props.addBookingInformation.city}</h5>
 									</div>
 									<div className='address'>
-										<h6>123, St name, lorem ipsum.</h6>
+										<h6>Address</h6>
 										<h5>{this.props.addBookingInformation.address}</h5>
 									</div>
 								</div>

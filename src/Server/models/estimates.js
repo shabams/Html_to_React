@@ -11,6 +11,8 @@ var EstimatesSchema = new mongoose.Schema({
     type: String,
     room: Number,
     bathroom: Number,
+    roomtime: Number,
+    bathroomtime: Number,
     address: String
 });
 

@@ -1,6 +1,7 @@
 import {
 	BOOKING_INFORMATION,
 	FIND_BOOKING,
+	CONTACT
 } from './Type'
 
 import axios from 'axios'
@@ -22,4 +23,12 @@ export const findBookingInformation = (data) => async dispatch => {
 		type: FIND_BOOKING,
 		payload: respond.data
 	})
+}
+
+export const contact = (data,props) => async dispatch => {
+	dispatch({
+		type: CONTACT,
+		payload: data
+	});
+	props.history.push("/#contactUs");
 }

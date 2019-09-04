@@ -10,7 +10,7 @@ import getEstimationPatternTop from '../../../../Assets/Images/estimation-form-m
 import getEstimationPatternBottom from '../../../../Assets/Images/estimation-form-mobile-bottom-125-47.png';
 import { connect } from 'react-redux';
 import axios from 'axios'
-import { getEstimation } from '../../../../Actions/home';
+import { getEstimation, fetchtime } from '../../../../Actions/home';
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -26,11 +26,11 @@ function MyVerticallyCenteredModal(props) {
       <Modal.Body className='d-flex justify-content-center'>
         <div className='modal-body-inside d-flex'>
       		<div className='left'>
-      			<h1>${props.price}</h1>
+      			{ props.esti ? <h1>${props.esti.price}</h1> : <h1>$0</h1> }
       			<h6>Estimate Cost</h6>
       		</div>
       		<div className='right'>
-      			<h1>2 hours</h1>
+      			{props.esti && props.esti.time != 'NaN' ? <h1>{props.esti.time}hours</h1> : <h1>0hours</h1> }
       			<h6>Estimate Time</h6>
       		</div>
         </div>
@@ -102,11 +102,22 @@ class AboveHeader extends Component {
 
 	componentWillReceiveProps = (nextProps) => {
 		console.log(nextProps);
-		if(nextProps && nextProps.price) this.setState({estimationPrice: nextProps.price});
+		if(nextProps && nextProps.esti){
+			this.setState({estimationPrice: nextProps.esti});
+			console.log(nextProps.esti, "=====================");
+		}
+	}
+
+	schedule = () => {
+		// this.props.history.push('/Schedule2')
+
+		const { fetchtime } = this.props;
+		fetchtime(this.props);
 	}
 
 	render() {
 		const width = this.state.width;
+		if (this.props.esti) console.log(this.props.esti.price);
 		return(
 			<Row className='above-header'>
 				<div className='above-header-left'>
@@ -173,8 +184,8 @@ class AboveHeader extends Component {
 							      <MyVerticallyCenteredModal
 							        show={this.state.modalShow}
 							        onHide={() => this.setState({modalShow: false})}
-							        goSchedulePage={() => this.props.history.push('/Schedule2')}
-							        price={this.state.estimationPrice}
+							        goSchedulePage={this.schedule}
+							        esti={this.state.estimationPrice}
 							      />
 							    </ButtonToolbar>
 							  </div>
@@ -189,7 +200,7 @@ class AboveHeader extends Component {
 }
 
 const mapStateToProps = state => ({
-	price: state.home.get_estimation_price
+	esti: state.home.get_estimation_price
 });
 
-export default withRouter(connect(mapStateToProps, { getEstimation })(AboveHeader));
+export default withRouter(connect(mapStateToProps, { getEstimation, fetchtime })(AboveHeader));

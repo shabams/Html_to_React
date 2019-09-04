@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="211.429" height="173.637" viewBox="0 0 211.429 173.637">
+  <g id="Group_3947" data-name="Group 3947" transform="translate(-865.383 -138.271)">
+    <g id="Group_3945" data-name="Group 3945" transform="translate(-33.836 -341.718)">
+      <path id="Union_1" data-name="Union 1" d="M4336.712-16632.207a9.879,9.879,0,0,1-9.877-9.873v-67.33a9.9,9.9,0,0,1,9.877-9.873h102.73a9.9,9.9,0,0,1,9.874,9.873v67.33a9.879,9.879,0,0,1-9.874,9.873Zm-5.921-77.2v67.33a5.918,5.918,0,0,0,5.921,5.916h102.73a5.9,5.9,0,0,0,5.921-5.916v-67.33a5.893,5.893,0,0,0-.451-2.266l-40.167,35.029,22.622,21.2a1.972,1.972,0,0,1,.08,2.791,1.963,1.963,0,0,1-1.448.621,1.956,1.956,0,0,1-1.351-.537l-22.717-21.312a1.869,1.869,0,0,1-.16-.17l-6.432,5.609a10.993,10.993,0,0,1-7.255,2.627,10.975,10.975,0,0,1-7.246-2.611l-6.442-5.617a1.853,1.853,0,0,1-.154.162l-22.738,21.313a1.955,1.955,0,0,1-1.351.537,1.947,1.947,0,0,1-1.443-.621,1.972,1.972,0,0,1,.071-2.791l22.631-21.2-40.165-35.031A5.87,5.87,0,0,0,4330.791-16709.41Zm52.626,38a7.416,7.416,0,0,0,9.315,0l49.533-43.2a5.9,5.9,0,0,0-2.824-.715h-102.73a5.872,5.872,0,0,0-2.806.711Z" transform="translate(-3379.836 17250.281)" fill="#374354" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+    <g id="Group_3946" data-name="Group 3946" transform="translate(41.383 -181.035)">
+      <g id="Group_3750" data-name="Group 3750" transform="translate(873.435 467.35)">
+        <g id="Ellipse_8" data-name="Ellipse 8" transform="translate(0 0)" fill="none" stroke="#3ff5b8" stroke-width="3">
+          <circle cx="12.797" cy="12.797" r="12.797" stroke="none"/>
+          <circle cx="12.797" cy="12.797" r="11.297" fill="none"/>
+        </g>
+      </g>
+      <g id="Group_3751" data-name="Group 3751" transform="translate(998.451 462.86)">
+        <circle id="Ellipse_9" data-name="Ellipse 9" cx="8.8" cy="8.8" r="8.8" fill="#fccd2f"/>
+      </g>
+      <g id="Group_3752" data-name="Group 3752" transform="translate(824 378.085)">
+        <circle id="Ellipse_10" data-name="Ellipse 10" cx="8.8" cy="8.8" r="8.8" fill="#fccd2f"/>
+      </g>
+      <g id="Group_3754" data-name="Group 3754" transform="translate(846.17 474.904)">
+        <circle id="Ellipse_12" data-name="Ellipse 12" cx="4.334" cy="4.334" r="4.334" transform="translate(0 0)" fill="#fccd2f"/>
+      </g>
+      <g id="Group_3755" data-name="Group 3755" transform="translate(865.172 333.285)">
+        <circle id="Ellipse_13" data-name="Ellipse 13" cx="4.334" cy="4.334" r="4.334" fill="#3ff5b8"/>
+      </g>
+      <g id="Ellipse_17" data-name="Ellipse 17" transform="translate(1002.087 331.191) rotate(43)" fill="none" stroke="#fccd2f" stroke-width="3">
+        <circle cx="8.475" cy="8.475" r="8.475" stroke="none"/>
+        <circle cx="8.475" cy="8.475" r="6.975" fill="none"/>
+      </g>
+      <circle id="Ellipse_16" data-name="Ellipse 16" cx="8.475" cy="8.475" r="8.475" transform="translate(1023.033 357.461) rotate(43)" fill="#3ff5b8"/>
+      <circle id="Ellipse_26" data-name="Ellipse 26" cx="3.45" cy="3.45" r="3.45" transform="translate(1016.266 319.307) rotate(43)" fill="#3ff5b8"/>
+    </g>
+  </g>
+</svg>

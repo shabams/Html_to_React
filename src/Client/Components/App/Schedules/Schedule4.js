@@ -163,7 +163,6 @@ const mapStateToProps = state => ({
 	s_date: state.schedule.selected_date,
 	s_time: state.schedule.selected_time,
 	addBookingInformation: state.booking.addBooking,
-
 });
 
 export default withRouter(connect(mapStateToProps, { bookingInformation })(Schedule4));

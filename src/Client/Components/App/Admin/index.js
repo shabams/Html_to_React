@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import './index.css';
 import {ToastsContainer, ToastsStore} from 'react-toasts';
 import swal from 'sweetalert';
-import { addScheduleRepeat, addScheduleDate, removeCalendarDate, manageCalendar, getUsers, register, setRoomRate, getRates, setBathRoomRate, changePassword, suspendAccount, changeStatus, archiveBooking } from '../../../Actions/Admin';
+import { addScheduleRepeat, addScheduleDate, removeCalendarDate, manageCalendar, getUsers, register, setRoomRate, setRoomTime, getRates, setBathRoomRate, setBathRoomTime, changePassword, suspendAccount, changeStatus, archiveBooking } from '../../../Actions/Admin';
 
 class Admin extends React.Component {
     constructor(props) {
@@ -446,8 +446,26 @@ class Admin extends React.Component {
         if (this.bathroom_rate.value < 0 ||!this.isNum(this.bathroom_rate.value)) {
             ToastsStore.error('Incorrect value!!');
         } else {
-            const { setRoomRate, getRates } = this.props;
+            const { setBathRoomRate, getRates } = this.props;
             setBathRoomRate({ bathroom: this.bathroom_rate.value });
+        }
+    }
+
+    setRoomTime = () => {
+        if (this.room_time.value < 0 ||!this.isNum(this.room_time.value)) {
+            ToastsStore.error('Incorrect value!!');
+        } else {
+            const { setRoomTime } = this.props;
+            setRoomTime({ room_time: this.room_time.value });
+        }
+    }
+
+    setBathRoomTime = () => {
+        if (this.bathroom_time.value < 0 ||!this.isNum(this.bathroom_time.value)) {
+            ToastsStore.error('Incorrect value!!');
+        } else {
+            const { setBathRoomTime } = this.props;
+            setBathRoomTime({ bathroom_time: this.bathroom_time.value });
         }
     }
 
@@ -645,6 +663,14 @@ class Admin extends React.Component {
                             <label htmlFor="bathroom_rate"><b>New Bathroom Rate</b></label><br />
                             <input type="number" min="0" id="bathroom_rate" placeholder="Bathroom Rate (number)" ref={input => this.bathroom_rate = input} defaultValue={this.props.room_rate ? this.props.room_rate.bathroom : ''} /><br />
                             <button type="button" onClick={this.setBathRoomRate} className="btn btn-success mt-3"><b>Change Bathroom Rate</b></button>
+                            <br />
+                            <label htmlFor="room_time" style={{marginTop: 20}}><b>New Room Time</b></label><br />
+                            <input type="number" min="0" id="room_time" placeholder="Room Time (number)" ref={input => this.room_time = input} /><br />
+                            <button type="button" onClick={this.setRoomTime} className="btn btn-success mt-3"><b>Change Room Time</b></button>
+                            <h4>Current rate per room: <h4 id="bathroom-rate" className="text-success"></h4> </h4>
+                            <label htmlFor="bathroom_time"><b>New Bathroom Rate</b></label><br />
+                            <input type="number" min="0" id="bathroom_time" placeholder="Bathroom Time (number)" ref={input => this.bathroom_time = input} /><br />
+                            <button type="button" onClick={this.setBathRoomTime} className="btn btn-success mt-3"><b>Change Bathroom Time</b></button>
                         </div>
                         <div id="change_password" className="container d-none">
                             <h3 className="text-secondary">Change Admin Account password:</h3>
@@ -675,4 +701,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { addScheduleRepeat, getRates, changeStatus, suspendAccount, getUsers, register, setRoomRate, setBathRoomRate, changePassword, manageCalendar, archiveBooking, removeCalendarDate, addScheduleDate })(Admin));
+export default withRouter(connect(mapStateToProps, { addScheduleRepeat, getRates, changeStatus, suspendAccount, getUsers, register, setRoomRate, setBathRoomRate,setRoomTime, setBathRoomTime, changePassword, manageCalendar, archiveBooking, removeCalendarDate, addScheduleDate })(Admin));

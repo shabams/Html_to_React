@@ -51,6 +51,28 @@ export const setBathRoomRate = (data) => async dispatch => {
     });
 }
 
+export const setRoomTime = (data) => async dispatch => {
+	const Url = "http://127.0.0.1:8000/admin/roomtime";
+    await axios.post(Url, data).then(function (response) {
+	    ToastsStore.success('Rate Changed!');
+	    getRatesAgain(dispatch);
+    })
+    .catch(error => {
+    	ToastsStore.error('Server unreachable!')
+    });
+}
+
+export const setBathRoomTime = (data) => async dispatch => {
+	const Url = "http://127.0.0.1:8000/admin/bathroomtime";
+    await axios.post(Url, data).then(function (response) {
+	    ToastsStore.success('Rate Changed!');
+	    getRatesAgain(dispatch);
+    })
+    .catch(error => {
+    	ToastsStore.error('Server unreachable!')
+    });
+}
+
 export const getRates = () => async dispatch => {
 	const Url = "http://127.0.0.1:8000/admin/getrates";
 	await axios.get(Url).then(function (response) {

@@ -144,32 +144,32 @@ app.use("/fetchtime", (req, res) => {
           date_arr[i] = date_arr[i].replace("Sunday", toDate);
         }
       }
-      Bookings.find({}, (err, data) => {
-        var bookings_arr = [];
-        for (var i = 0; i < data.length; i++) {
-          var bookings_month = data[i].time.substring(5, 6);
-          bookings_month = parseInt(bookings_month);
-          if (bookings_month < 10) {
-            bookings_month = `0${bookings_month}`;
-          }
-          bookings_arr.push(
-            `${data[i].time.substring(0, 4)}-${bookings_month}${data[
-              i
-            ].time.substring(6, 18)}`
-          );
-        }
-        for (var i = 0; i < date_arr.length; i++) {
-          for (var j = 0; j < bookings_arr.length; j++) {
-            if (date_arr[i].substring(0, 18).trim() == bookings_arr[j].trim()) {
-              date_arr.splice(i, 1);
-            }
-          }
-        }
-        var filteredArr = date_arr.filter(function(item, index) {
-          if (date_arr.indexOf(item) == index) return item;
-        });
-        res.status(200).send(filteredArr);
+      // Bookings.find({}, (err, data) => {
+      //   var bookings_arr = [];
+        // for (var i = 0; i < data.length; i++) {
+        //   var bookings_month = data[i].time.substring(5, 6);
+        //   bookings_month = parseInt(bookings_month);
+        //   if (bookings_month < 10) {
+        //     bookings_month = `0${bookings_month}`;
+        //   }
+        //   bookings_arr.push(
+        //     `${data[i].time.substring(0, 4)}-${bookings_month}${data[
+        //       i
+        //     ].time.substring(6, 18)}`
+        //   );
+        // }
+        // for (var i = 0; i < date_arr.length; i++) {
+        //   for (var j = 0; j < bookings_arr.length; j++) {
+        //     if (date_arr[i].substring(0, 18).trim() == bookings_arr[j].trim()) {
+        //       date_arr.splice(i, 1);
+        //     }
+        //   }
+        // }
+      // });
+      var filteredArr = date_arr.filter(function(item, index) {
+        if (date_arr.indexOf(item) == index) return item;
       });
+      res.status(200).send(filteredArr);
     }
   );
 });
@@ -295,9 +295,11 @@ app.use("/getestimates", (req, res) => {
       for (var i = 0; i < data.length; i++) {
         if (data[i].address.toLowerCase() == address) {
           var price = bathroom_int * data[i].bathroom + data[i].room * room_int;
+          var time = bathroom_int * data[i].bathroomtime + data[i].roomtime * room_int;
           res.send(
             JSON.stringify({
-              price: `${price}`
+              price: `${price}`,
+              time: `${time}`
             })
           );
         } else {
@@ -305,9 +307,11 @@ app.use("/getestimates", (req, res) => {
             type: "regular"
           }).then(data => {
             var price = bathroom_int * data.bathroom + data.room * room_int;
+            var time = bathroom_int * data.bathroomtime + data.roomtime * room_int;
             res.send(
               JSON.stringify({
-                price: `${price}`
+                price: `${price}`,
+                time: `${time}`
               })
             );
           });

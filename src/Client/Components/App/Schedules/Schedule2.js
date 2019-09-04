@@ -9,6 +9,7 @@ import backgroundRight from '../../../Assets/Images/background-right-133-380.png
 import step1 from '../../../Assets/Images/step1.svg';
 import { selectDate } from '../../../Actions/Schedule';
 import { connect } from 'react-redux';
+import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 class Schedule2 extends Component {
 	constructor(props) {
@@ -42,9 +43,25 @@ class Schedule2 extends Component {
 		const { date, month, year } = res;
 		const {selectDate} = this.props;
 		this.setState({ year: year, month: month, date: date });
-		selectDate(new Date(year, month-1, date));
-		console.log(new Date(year, month-1, date));
-		this.props.history.push('/Schedule3');
+		console.log(this.props.available);
+		let available_date = ''
+		for (let i = 0; i < this.props.available.length; i++) {
+			let day = this.props.available[i].split(" ")[0];
+			console.log(new Date(day));
+			console.log(new Date(year,month-1, date));
+			if (new Date(day).getFullYear() == new Date(year,month-1, date-1).getFullYear() &&
+				new Date(day).getMonth() == new Date(year,month-1, date-1).getMonth() &&
+				new Date(day).getDate() == new Date(year,month-1, date-1).getDate()) {
+				available_date = new Date(day);
+				let available_time = this.props.available[i].split(" - ")[0].split(" ")[1];
+				let available_time_end = this.props.available[i].split(" - ")[1];
+				selectDate(new Date(year, month-1, date), available_time, available_time_end);
+				this.props.history.push('/Schedule3');
+			}
+		}
+		if (available_date == '') {
+			ToastsStore.error('Please select available date');
+		}
 	}
 
 	onResetDate(res) {
@@ -160,13 +177,15 @@ class Schedule2 extends Component {
 						</div>
 					</div>
       			</div>
+      			<ToastsContainer store={ToastsStore}/>
       		</div>
 		)
 	}
 }
 
 const mapStateToProps = state => ({
-	s_date: state.schedule.selected_date
+	s_date: state.schedule.selected_date,
+	available: state.home.available
 });
 
 export default withRouter(connect(mapStateToProps, { selectDate })(Schedule2));

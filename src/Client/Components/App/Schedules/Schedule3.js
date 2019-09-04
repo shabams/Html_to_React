@@ -32,12 +32,45 @@ class Schedule3 extends Component {
 	}
 
 	render() {
-		const time = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM']
+		console.log(this.props.available_time_duration);
+		let times = ['6 AM','7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM'];
+		let time = [];
+		if (this.props.available_time_duration.available_time_start) {
+			time = [];
+			console.log("=====================");
+			const start = this.props.available_time_duration.available_time_start || 0;
+			const end = this.props.available_time_duration.available_time_end || 0;
+			if (start.substring(5, 7)=="AM" && end.substring(5, 7)=="AM") {
+				for (let i = start.split(":")[0]; i <= end.split(":")[0]; i++) {
+					let t = parseInt(i) + ' AM';
+					time.push(t);
+				}
+			} else if (start.substring(5, 7)=="PM" && end.substring(5, 7)=="PM") {
+				for (let i = start.split(":")[0]; i <= end.split(":")[0]; i++) {
+					let t = parseInt(i) + ' PM';
+					time.push(t);
+				}
+			} else if (start.substring(5, 7)=="AM" && end.substring(5, 7)=="PM") {
+				for (let i = start.split(":")[0]; i <= 12; i++) {
+					let t = parseInt(i) + ' AM';
+					time.push(t);
+				}
+
+				for (let i = 1; i <= end.split(":")[0]; i++) {
+					let t = parseInt(i) + ' PM';
+					time.push(t);
+				}
+			}
+		} else {
+			time = ['8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM'];
+		}
+
+		console.log(time);
 		const availableTime = 
 			<div className='available-time d-flex' >
-				{time.map((t, index) => {
+				{times.map((t, index) => {
 					return (
-						index > 2 && index < 13 ? <div className='each-time active d-flex' onClick={e => this.handleTime(e, t)}>{t}</div> :
+						time.includes(t) ? <div className='each-time active d-flex' onClick={e => this.handleTime(e, t)}>{t}</div> :
 							<div className='each-time d-flex' onClick={e => this.handleTime(e, t)}>{t}</div>
 
 					);
@@ -79,7 +112,8 @@ class Schedule3 extends Component {
 }
 
 const mapStateToProps = state => ({
-	s_date: state.schedule.selected_date
+	s_date: state.schedule.selected_date,
+	available_time_duration: state.schedule.available_time_duration
 });
 
 export default withRouter(connect(mapStateToProps, { selectTime })(Schedule3));

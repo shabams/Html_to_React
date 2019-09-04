@@ -4,9 +4,64 @@ import './Contact.css';
 import contactform from '../../../Assets/Images/contactform.png';
 import mail from '../../../Assets/Images/mail.svg';
 import phone from '../../../Assets/Images/phone.svg';
+import { connect } from 'react-redux';
 import location from '../../../Assets/Images/location.svg';
+import { withRouter } from 'react-router-dom';
+import { contactUs } from '../../../Actions/home';
+import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 class Contact extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			name: '',
+			email: '',
+			message: ''
+		}
+	}
+
+	send = () => {
+		const data = {
+			name: this.state.name,
+			email: this.state.email,
+			message: this.state.message
+		}
+
+		console.log(data, "------------------");
+
+		if (data.name.length < 1 || data.email.length < 1 || data.message.length < 1 || !this.validateEmail(data.email)) {
+			ToastsStore.error('Please fill in all the fields...');
+		} else {
+			const { contact } = this.props;
+			contactUs(data);
+		}
+	}
+
+	componentDidMount() {
+		if (this.props.contact) {
+			this.setState({name: this.props.contact.name});
+			this.setState({email: this.props.contact.email});		
+		}
+	}
+
+	handleName = (e) => {
+		this.setState({name: e.target.value});
+	}
+
+	handleEmail = (e) => {
+		this.setState({email: e.target.value});
+	}
+
+	handleMessage = (e) => {
+		this.setState({message: e.target.value});
+	}
+
+	validateEmail = (email) => {
+		let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(String(email).toLowerCase());
+	}
+
 	render() {
 		return(
 			<div className='contact' id='contactUs'>
@@ -43,13 +98,17 @@ class Contact extends Component {
 											<Col md={6} sm={12} xs={12}>
 											  <Form.Group controlId='formBasicName'>
 											    <Form.Label>Name*</Form.Label>
-											    <Form.Control type='text' style={{ width: '100%' }} />
+											    {this.props.contact ? 
+											    											    	<Form.Control type='text' style={{ width: '100%' }} defaultValue={this.props.contact.name} onChange={(e) => this.handleName(e)}/> :
+											    											    	<Form.Control type='text' style={{ width: '100%' }} /> }
 											  </Form.Group>
 											</Col>
 											<Col md={6} sm={12} xs={12}>
 											  <Form.Group controlId='formBasicPhoneNumber'>
 											    <Form.Label>PhoneNumber*</Form.Label>
-											    <Form.Control type='text' style={{ width: '100%' }} />
+											   { this.props.contact ? 
+											   											    <Form.Control type='text' style={{ width: '100%' }} defaultValue={this.props.contact.phone_no}/> :
+											   											    <Form.Control type='text' style={{ width: '100%' }} />}
 											  </Form.Group>
 											</Col>
 										</Row>
@@ -58,7 +117,9 @@ class Contact extends Component {
 											<Col>
 											  <Form.Group controlId='formBasicEmailAddress'>
 											    <Form.Label>Email Address</Form.Label>
-											    <Form.Control type='email'  />
+											    {this.props.contact ? 
+											    											    <Form.Control type='text' style={{ width: '100%' }} defaultValue={this.props.contact.email} onChange={(e) => this.handleEmail(e)}/> :
+											    											    <Form.Control type='email' />}
 											  </Form.Group>
 											</Col>
 										</Row>
@@ -67,12 +128,12 @@ class Contact extends Component {
 											<Col>
 											  <Form.Group controlId='formBasicMessage'>
 											    <Form.Label>Message</Form.Label>
-											    <Form.Control as='textarea' rows='6' />
+											    <Form.Control as='textarea' rows='6' onChange={(e) => this.handleMessage(e)} />
 											  </Form.Group>
 											</Col>
 										</Row>
 									 	<div className='d-flex justify-content-center'>
-									  	<Button variant='primary' className='send-button'>
+									  	<Button variant='primary' className='send-button' onClick={this.send}>
 									    	Send
 									  	</Button>
 									  </div>
@@ -82,9 +143,14 @@ class Contact extends Component {
 						</Col>
 					</Row>	
 				</Container>
+                <ToastsContainer store={ToastsStore}/>
 			</div>
 		)
 	}
 }
 
-export default Contact
+const mapStateToProps = state => ({
+	contact: state.booking.contact
+});
+
+export default withRouter(connect(mapStateToProps, { contactUs })(Contact));

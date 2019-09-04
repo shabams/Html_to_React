@@ -1,8 +1,8 @@
-import { BOOKING_INFORMATION, FIND_BOOKING } from '../Actions/Type';
+import { BOOKING_INFORMATION, FIND_BOOKING, CONTACT } from '../Actions/Type';
 
 const initialState = {
 	addBooking: {},
-  bookedInformation: []
+  bookedInformation: [],
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +16,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         bookedInformation: action.payload
+      };
+    case CONTACT:
+      return {
+        ...state,
+        contact: action.payload
       };
     default:
       return state;
