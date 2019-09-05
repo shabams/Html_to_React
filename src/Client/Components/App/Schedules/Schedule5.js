@@ -15,7 +15,9 @@ class Schedule5 extends Component {
 	}
 
 	handleConfirmBooking = () => {
-		this.props.history.push('/Schedule6');
+		// this.props.history.push('/Schedule6');
+		console.log(this.props.booked_time, '===========================');
+		console.log(this.props.s_date, '=========================');
 	}
 
 	render() {
@@ -90,7 +92,9 @@ class Schedule5 extends Component {
 }
 
 const mapStateToProps = state => ({
-	addBookingInformation: state.booking.addBooking
+	addBookingInformation: state.booking.addBooking,
+	s_date: state.schedule.selected_date,
+	booked_time: state.schedule.booked_time
 });
 
 export default withRouter(connect(mapStateToProps, { })(Schedule5));

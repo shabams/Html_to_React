@@ -24,14 +24,12 @@ export const getEstimation = (data) => async dispatch => {
     });
 }
 
-export const contactUs = data => async dispatch => {
+export const contactUs = (data) => async dispatch => {
 	console.log("===============");
 	const Url = "http://127.0.0.1:8000/contact";
 	await axios.post(Url, data).then(function (response) {
         ToastsStore.success('Message Sent');
-        // document.getElementById("contact-name").value = "";
-        // document.getElementById("contact-email").value = "";
-        // document.getElementById("contact-message").value = "";
+
 	})
 	.catch(error => {
 		ToastsStore.error('Server unreachable. Please try again later.');

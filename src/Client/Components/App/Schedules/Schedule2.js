@@ -60,7 +60,7 @@ class Schedule2 extends Component {
 			}
 		}
 		if (available_date == '') {
-			ToastsStore.error('Please select available date');
+			ToastsStore.error("Sorry the chosen date is unavailable, but don't worry contact us directly and we will schedule you");
 		}
 	}
 

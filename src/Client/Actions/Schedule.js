@@ -1,7 +1,8 @@
 import {
 	SELECTED_DATE,
 	SELECTED_TIME,
-	AVAILABLE_TIME_DURATION
+	AVAILABLE_TIME_DURATION,
+	BOOKED_TIME
 } from './Type'
 
 import axios from 'axios'
@@ -19,10 +20,15 @@ export const selectDate = (selected_date, available_time, available_time_end) =>
 	});
 }
 
-export const selectTime = (selected_time) => async dispatch => {
+export const selectTime = (selected_time, time) => async dispatch => {
 	dispatch({
 		type: SELECTED_TIME,
 		payload: selected_time
+	});
+
+	dispatch({
+		type: BOOKED_TIME,
+		payload: time
 	});
 }
 

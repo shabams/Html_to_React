@@ -18,8 +18,8 @@ class ScheduleNavBar extends Component {
             <Nav>
               <Nav.Link href='#how-it-works'>How It Works</Nav.Link>
               <Nav.Link href='#home'>My Bookings</Nav.Link>
-              <Nav.Link href='#about-us'>About Us</Nav.Link>
-              <Nav.Link href='#contact-us'>Contact Us</Nav.Link>
+              <Nav.Link href='/#about-us'>About Us</Nav.Link>
+              <Nav.Link href='/#contact-us'>Contact Us</Nav.Link>
               <Nav.Link href='#link'>Schedule Now</Nav.Link>
             </Nav>
           </Navbar.Collapse>

@@ -33,19 +33,20 @@ class Contact extends Component {
 		if (data.name.length < 1 || data.email.length < 1 || data.message.length < 1 || !this.validateEmail(data.email)) {
 			ToastsStore.error('Please fill in all the fields...');
 		} else {
-			const { contact } = this.props;
+			const { contactUs } = this.props;
 			contactUs(data);
 		}
 	}
 
 	componentDidMount() {
-		if (this.props.contact) {
+		if (this.props.contact && this.props.contact.name) {
 			this.setState({name: this.props.contact.name});
 			this.setState({email: this.props.contact.email});		
 		}
 	}
 
 	handleName = (e) => {
+		console.log(e.target);
 		this.setState({name: e.target.value});
 	}
 
@@ -100,7 +101,7 @@ class Contact extends Component {
 											    <Form.Label>Name*</Form.Label>
 											    {this.props.contact ? 
 											    											    	<Form.Control type='text' style={{ width: '100%' }} defaultValue={this.props.contact.name} onChange={(e) => this.handleName(e)}/> :
-											    											    	<Form.Control type='text' style={{ width: '100%' }} /> }
+											    											    	<Form.Control type='text' style={{ width: '100%' }} onChange={(e) => this.handleName(e)}/> }
 											  </Form.Group>
 											</Col>
 											<Col md={6} sm={12} xs={12}>
@@ -119,7 +120,7 @@ class Contact extends Component {
 											    <Form.Label>Email Address</Form.Label>
 											    {this.props.contact ? 
 											    											    <Form.Control type='text' style={{ width: '100%' }} defaultValue={this.props.contact.email} onChange={(e) => this.handleEmail(e)}/> :
-											    											    <Form.Control type='email' />}
+											    											    <Form.Control type='email' onChange={(e) => this.handleEmail(e)}/>}
 											  </Form.Group>
 											</Col>
 										</Row>
