@@ -64,11 +64,17 @@ h1, h2, h3, h4, h5, h6 {
 .picky-date-time-calendar__table-cel {
 	border: none;
 	padding: 10px 35px;
+	color: #393c40;
+}
+
+.picky-date-time-calendar__clicker {
+	color: #393c40;
 }
 
 .picky-date-time-calendar__table-cel.m {
 	font-size: 20px;
 	width: 110px;
+	color: #393c40;
 }
 
 .picky-date-time-highlight_off:before {

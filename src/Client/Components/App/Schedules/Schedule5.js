@@ -15,9 +15,9 @@ class Schedule5 extends Component {
 	}
 
 	handleConfirmBooking = () => {
-		// this.props.history.push('/Schedule6');
-		console.log(this.props.booked_time, '===========================');
-		console.log(this.props.s_date, '=========================');
+		this.props.history.push('/Schedule6');
+		// console.log(this.props.booked_time, '===========================');
+		// console.log(this.props.s_date, '=========================');
 	}
 
 	render() {

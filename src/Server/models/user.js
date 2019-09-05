@@ -5,7 +5,7 @@ const SALT_WORK_FACTOR = 10;
 
 //Connecting mongodb
 mongoose.connect(
-    'mongodb+srv://admin:SubCleaner2019@cluster-e4rao.mongodb.net/test?retryWrites=true',{dbName:'cleaning-site'}
+    'mongodb+srv://admin:SubCleaner2019@cluster-e4rao.mongodb.net/test?retryWrites=true',{dbName:'cleaning-site'}, {useNewUrlParser: true}
 );
 
 var UserSchema = new mongoose.Schema({

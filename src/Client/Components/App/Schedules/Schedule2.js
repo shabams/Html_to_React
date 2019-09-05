@@ -55,6 +55,7 @@ class Schedule2 extends Component {
 				available_date = new Date(day);
 				let available_time = this.props.available[i].split(" - ")[0].split(" ")[1];
 				let available_time_end = this.props.available[i].split(" - ")[1];
+				console.log(available_time, available_time_end);
 				selectDate(new Date(year, month-1, date), available_time, available_time_end);
 				this.props.history.push('/Schedule3');
 			}

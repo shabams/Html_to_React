@@ -32,8 +32,10 @@ class Schedule3 extends Component {
 	}
 
 	render() {
-		console.log(this.props.available_time_duration);
-		let times = ['6 AM','7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM'];
+		const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ];
+		const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+		console.log(this.props.s_date);
+		let times = ['6 AM','7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM'];
 		let time = [];
 		let estimation = 0;
 		if (this.props.esti && this.props.esti.time) {
@@ -61,12 +63,19 @@ class Schedule3 extends Component {
 					if (count == estimation) break;
 				}
 			} else if (start.substring(5, 7)=="AM" && end.substring(5, 7)=="PM") {
-				for (let i = start.split(":")[0]; i <= 12; i++) {
+				for (let i = start.split(":")[0]; i <= 11; i++) {
 					let t = parseInt(i) + ' AM';
 					time.push(t);
 					count ++;
 					if (count == estimation) break;
 				}
+
+				if (end.split(":")[0] == 12) {
+					time.push('12 PM');
+					return;	
+				}
+
+				time.push('12 PM');
 
 				for (let i = 1; i <= end.split(":")[0]; i++) {
 					let t = parseInt(i) + ' PM';
@@ -74,9 +83,30 @@ class Schedule3 extends Component {
 					count ++;
 					if (count == estimation) break;
 				}
+			} else if (start.substring(5, 7)=="PM" && end.substring(5, 7)=="AM") {
+				for (let i = start.split(":")[0]; i <= 11; i++) {
+					let t = parseInt(i) + ' PM';
+					time.push(t);
+					count ++;
+					if (count == estimation) break;
+				}
+
+				if (end.split(":")[0] == 12) {
+					time.push('12 AM');
+					return;	
+				}
+
+				time.push('12 AM');
+
+				for (let i = 1; i <= end.split(":")[0]; i++) {
+					let t = parseInt(i) + ' AM';
+					time.push(t);
+					count ++;
+					if (count == estimation) break;
+				}
 			}
 		} else {
-			time = ['8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM'];
+			time = ['8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM'];
 		}
 
 		console.log(time);
@@ -104,7 +134,7 @@ class Schedule3 extends Component {
 		      				</h1>
 		      				<div className='available-time-body'>
 		      					<div className='selected-date'>
-		      						Thu, July 29
+		      						{days[new Date(this.props.s_date).getDay()-1] || ''} {months[new Date(this.props.s_date).getMonth()] || ''} {new Date(this.props.s_date).getDate() || ''}
 		      					</div>
 		      					{availableTime}
 		      					<div style={{ textAlign: 'right', marginTop: '20px'}}><Image src={check} style={{marginRight:'10px'}}/>Available Time</div>

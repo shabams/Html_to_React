@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 //Connecting mongodb
 mongoose.connect(
-    'mongodb+srv://admin:SubCleaner2019@cluster-e4rao.mongodb.net/test?retryWrites=true',{dbName:'cleaning-site'}
+    'mongodb+srv://admin:SubCleaner2019@cluster-e4rao.mongodb.net/test?retryWrites=true',{dbName:'cleaning-site'}, {useNewUrlParser: true}
 );
 
 var BookingsSchema = new mongoose.Schema({
